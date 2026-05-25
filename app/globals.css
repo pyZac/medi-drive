@@ -2,8 +2,8 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@source not "../tasks";
-@source not "../stitch_medi_drive_dynamic_ui_refresh";
+@source not "../tasks/**";
+@source not "../stitch_medi_drive_dynamic_ui_refresh/**";
 
 @custom-variant dark (&:is(.dark *));
 
