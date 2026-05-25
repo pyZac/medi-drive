@@ -8,9 +8,9 @@
 
 | Concern        | Choice                                          |
 | -------------- | ----------------------------------------------- |
-| Framework      | Next.js 15 (App Router) + TypeScript            |
+| Framework      | Next.js 16 (App Router) + TypeScript            |
 | Styling        | Tailwind CSS v4                                 |
-| Components     | shadcn/ui (Radix primitives, copy-in)           |
+| Components     | shadcn/ui 4.x — base-nova style, neutral colour |
 | Icons          | lucide-react                                    |
 | i18n           | next-intl (route-segment locales: `/en`, `/de`) |
 | Forms          | react-hook-form + zod                           |
@@ -73,7 +73,7 @@ medi-drive/
 │   └── lessons.md                   # created per claude.md after first correction
 ├── .env.example
 ├── .env.local                       # gitignored
-├── middleware.ts                    # next-intl locale negotiation
+├── proxy.ts                         # next-intl locale negotiation (Next.js 16: replaces middleware.ts)
 ├── next.config.ts
 ├── tailwind.config.ts
 ├── tsconfig.json

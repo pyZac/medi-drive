@@ -35,7 +35,7 @@ Audience is **B2B, non-technical, time-poor**. Pages should be skimmable: clear 
 
 | Area          | Decision                                          | Why                                                                |
 | ------------- | ------------------------------------------------- | ------------------------------------------------------------------ |
-| Stack         | Next.js (App Router) + TypeScript                 | First-class on Vercel; SSG/ISR for fast informative pages; great SEO story. |
+| Stack         | Next.js 16 (App Router) + TypeScript             | First-class on Vercel; SSG/ISR for fast informative pages; great SEO story. Scaffolded as Next.js 16 (latest at time of Phase 1). |
 | Styling       | Tailwind CSS + shadcn/ui                          | Accessible primitives, fast to compose, no design-system overhead. |
 | Languages     | English + German (bilingual, both LTR)            | Service targets DACH market; English fallback for international partners. |
 | i18n library  | `next-intl`                                       | App Router-native, route-segment based (`/en`, `/de`), strong typing. |

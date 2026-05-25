@@ -28,23 +28,24 @@
 
 ## Phase 1 — Project bootstrap
 
-- [ ] `pnpm create next-app@latest` — App Router, TS, Tailwind, ESLint, `src/` no, alias `@/*`
-- [ ] Initialise shadcn/ui (`pnpm dlx shadcn@latest init`)
-- [ ] Add base shadcn components: `button`, `input`, `textarea`, `select`, `checkbox`, `label`, `card`, `sonner`
-- [ ] Install runtime deps: `next-intl`, `react-hook-form`, `@hookform/resolvers`, `zod`, `resend`, `lucide-react`
-- [ ] Configure `tsconfig.json` strict mode; verify `pnpm build` succeeds on empty scaffold
-- [ ] Add `.env.example` (no secrets) and ensure `.env.local` is gitignored
-- [ ] Commit: `chore: initial scaffold`
+- [x] `pnpm create next-app@latest` — App Router, TS, Tailwind, ESLint, `src/` no, alias `@/*`
+- [x] Initialise shadcn/ui (`pnpm dlx shadcn@latest init`)
+- [x] Add base shadcn components: `button`, `input`, `textarea`, `select`, `checkbox`, `label`, `card`, `sonner`
+- [x] Install runtime deps: `next-intl`, `react-hook-form`, `@hookform/resolvers`, `zod`, `resend`, `lucide-react`
+- [x] Configure `tsconfig.json` strict mode; verify `pnpm build` succeeds on empty scaffold
+- [x] Add `.env.example` (no secrets) and ensure `.env.local` is gitignored
+- [x] Commit: `chore: initial scaffold`
 
 ## Phase 2 — i18n & layout
 
-- [ ] Install + configure `next-intl` (`middleware.ts`, `i18n/routing.ts`, `i18n/request.ts`)
-- [ ] Create `app/[locale]/layout.tsx` with `<html lang>` from locale
-- [ ] Create `i18n/messages/en.json` and `de.json` with initial keys (nav, footer, common)
-- [ ] Build `components/layout/header.tsx` with logo, nav, locale switcher
-- [ ] Build `components/layout/footer.tsx` with nav + legal links
-- [ ] Build `components/layout/locale-switcher.tsx` preserving current path
-- [ ] Add skip-to-content link
+- [x] Install + configure `next-intl` (`proxy.ts`, `i18n/routing.ts`, `i18n/request.ts`, `i18n/navigation.ts`)
+- [x] Create `app/[locale]/layout.tsx` with `<html lang>` from locale, Inter font, `NextIntlClientProvider`
+- [x] Create `i18n/messages/en.json` and `de.json` with initial keys (nav, footer, common)
+- [x] Build `components/layout/header.tsx` with logo, nav, locale switcher
+- [x] Build `components/layout/footer.tsx` with nav + legal links
+- [x] Build `components/layout/locale-switcher.tsx` preserving current path
+- [x] Add skip-to-content link
+- [x] `pnpm build` succeeds with zero warnings — `/en` and `/de` statically generated (SSG)
 - [ ] Verify Lighthouse a11y ≥ 95 on an empty home page
 
 ## Phase 3 — Content pages
@@ -116,16 +117,28 @@ _To be completed after implementation._
 
 ### What was built
 
--
+- Next.js 16.2.6 (App Router) + TypeScript + Tailwind v4 + shadcn/ui (base-nova style, neutral base colour) scaffolded into `e:\medi-drive`
+- shadcn components added: button, input, textarea, select, checkbox, label, card, sonner
+- Runtime deps installed: next-intl 4.12.0, react-hook-form 7.76.1, @hookform/resolvers 5.4.0, zod 4.4.3, resend 6.12.3, lucide-react 1.16.0
+- `.env.example` with four env-var keys (no values), `.env.local` gitignored via `.env*` pattern + `!.env.example` negation
+- `pnpm-workspace.yaml` with `allowBuilds` for all native packages (sharp, unrs-resolver, msw, @parcel/watcher, @swc/core)
+- `.claude/settings.local.json` excluded from git (machine-specific permissions)
+- Commit: `d694878` — `chore: initial scaffold`
 
 ### What was deferred (and why)
 
--
+- Nothing from Phase 1 scope was deferred.
 
 ### Surprises / decisions changed mid-flight
 
--
+- **pnpm not installed** on the machine — installed via `npm install -g pnpm` (v11.3.0).
+- **pnpm 11 build-script approval model**: every new package with native build scripts requires explicit approval in `pnpm-workspace.yaml` under `allowBuilds`. Hit this four times (sharp, unrs-resolver, msw, @parcel/watcher, @swc/core). After the first discovery, each new one required a one-line fix + `pnpm install`.
+- **`create-next-app` non-empty directory rejection**: the scaffolder exits with error if any non-hidden files/dirs exist. Worked around by temporarily moving `claude.md` and `tasks/` to `e:\__phase1_tmp`, scaffolding, then restoring them.
+- **Next.js 16** installed (plan was written when 15 was latest). No functional impact — App Router and all required APIs are identical.
+- **shadcn init needed a second run**: first run installed deps but was cut short by the `msw` build-script block before creating `lib/utils.ts` and updating `globals.css`. Fixed by approving `msw`, deleting the partial `components.json`, and re-running init cleanly.
+- **lucide-react already installed** by shadcn init — did not need to be passed to `pnpm add`.
 
 ### Lessons to capture in `tasks/lessons.md`
 
--
+- L6: pnpm 11 `allowBuilds` pattern — add to workspace.yaml up front for known native packages (sharp, @swc/core, @parcel/watcher) to avoid repeated approve cycles.
+- L7: `create-next-app` rejects non-empty directories with non-hidden files — temp-move strategy works cleanly.

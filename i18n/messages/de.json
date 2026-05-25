@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "services": "Leistungen",
+    "contact": "Kontakt"
+  },
+  "footer": {
+    "tagline": "Die zuverlässige Verbindung zwischen Klinik und Labor.",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz"
+  },
+  "common": {
+    "skipToContent": "Zum Hauptinhalt springen",
+    "switchLocale": "Sprache wechseln"
+  }
+}
