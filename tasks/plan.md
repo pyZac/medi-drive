@@ -211,3 +211,121 @@ Domain must be verified in Resend before production sends will deliver. Document
 - Live chat.
 
 Each is a clean addition later; none are required for the v1 informative site.
+
+---
+
+## 11. Visual Design (Phase 9 — added after v1 deploy feedback)
+
+> Stakeholder feedback after Vercel deploy: the site looks "too basic — only white and black, no photos or animations or colors." Phase 9 addresses this.
+
+### 11.1 Colour palette
+
+The current palette is achromatic (all `oklch` values have `0` chroma). Replace with a professional medical-blue palette. Apply changes **only in `app/globals.css`** — all components already consume CSS vars so no component files need colour edits.
+
+Target token values (`light` mode):
+
+| Token | Current (grayscale) | New (medical blue) | Notes |
+|-------|--------------------|--------------------|-------|
+| `--primary` | `oklch(0.205 0 0)` — near-black | `oklch(0.55 0.20 243)` — blue-600 | Brand blue; CTAs, step circles, icon colour |
+| `--primary-foreground` | `oklch(0.985 0 0)` | unchanged — white | Fine as-is |
+| `--ring` | `oklch(0.708 0 0)` | `oklch(0.55 0.20 243)` | Match primary so focus rings are blue |
+| `--muted` | `oklch(0.97 0 0)` | `oklch(0.965 0.01 240)` | Faint blue tint on section backgrounds |
+| `--muted-foreground` | `oklch(0.556 0 0)` | `oklch(0.50 0.04 240)` | Slightly blue-shifted for warmth |
+| `--accent` | `oklch(0.97 0 0)` | `oklch(0.62 0.14 194)` — teal | Accent colour for badges, highlights |
+| `--accent-foreground` | `oklch(0.205 0 0)` | `oklch(0.985 0 0)` — white | White on teal accent |
+| `--border` | `oklch(0.922 0 0)` | `oklch(0.91 0.02 240)` | Subtle blue-tinted border |
+
+> WCAG AA contrast must be maintained. Verify blue-on-white (`--primary` on `--background`) — blue-600 on white is ~4.6:1, passing AA for normal text and large text.
+
+### 11.2 Section background system
+
+Replace the current flat alternating `bg-background` / `bg-muted/40` with a richer system:
+
+| Section | Background treatment |
+|---------|---------------------|
+| Hero | Dark: `bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900` + white text. Optionally overlay a hero photo (`public/images/hero-bg.jpg`) with `bg-cover bg-center` and a `bg-black/50` overlay for legibility. |
+| Service Highlights | `bg-gradient-to-b from-slate-50 to-white` — very subtle |
+| Trust Badges | `bg-blue-50` (light brand blue tint) |
+| How It Works | `bg-white` |
+| CTA Banner | `bg-gradient-to-r from-blue-700 to-teal-600` — brand gradient |
+| About sections | Alternate `bg-white` and `bg-slate-50` |
+| Services page | `bg-white` with cards that have `hover:shadow-lg hover:border-blue-200 transition-all` |
+| Contact page | `bg-slate-50` outer, white card inner |
+| Impressum / Datenschutz | `bg-white` — legal pages stay plain |
+
+### 11.3 Images
+
+Three options in priority order — choose one or combine:
+
+**Option A (recommended): Pexels/Unsplash free stock download**
+- Download 2–3 high-quality images to `public/images/` and reference via Next.js `<Image>` component.
+- Suggested queries: "medical laboratory samples", "clinic courier delivery", "lab technician".
+- Pexels is fully free with no attribution required for commercial use.
+- Use `<Image src="/images/hero-bg.jpg" alt="..." fill className="object-cover" />` inside a `relative` wrapper with a dark overlay `<div>`.
+
+**Option B: AI-generated images via Higgsfield MCP tool**
+- The session environment has `mcp__claude_ai_Higgsfield__generate_image` available.
+- Generate: professional medical courier handing samples to a lab technician, photo-realistic, clean, bright, clinic interior.
+- Save the returned image URL / blob to `public/images/`.
+- This produces unique brand-appropriate imagery without licensing concerns.
+
+**Option C: CSS-only visuals (no images)**
+- Use the gradient section backgrounds + large SVG icons/illustrations instead of photos.
+- Adds colour and depth without any image files.
+- Simplest to implement; weakest visual impact.
+
+Regardless of option, also regenerate `public/og-image.png` (currently a solid dark-navy placeholder) to include the brand name with the new colour palette.
+
+### 11.4 Animations
+
+`tw-animate-css` is **already imported** in `globals.css`. No new dependency needed for basic entrance animations.
+
+**Scroll-reveal pattern** (no JS, no extra deps):
+
+Use CSS Scroll-Driven Animations (`animation-timeline: view()`) with a utility class defined in `globals.css`:
+
+```css
+@layer utilities {
+  .reveal {
+    animation: fade-in-up linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 30%;
+  }
+}
+```
+
+Apply `className="reveal"` to section headings, card grids, and step lists. Degrades gracefully in older browsers (elements are visible by default).
+
+**Hover micro-interactions** (Tailwind only):
+- Cards: `hover:shadow-lg hover:-translate-y-1 transition-all duration-200`
+- Buttons: already have transitions from shadcn; ensure primary button has `hover:bg-blue-700` after palette change
+- Trust badge icons: `group-hover:scale-110 transition-transform`
+- Nav links: `relative after:content-[''] after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary hover:after:w-full after:transition-all` (underline slide)
+
+**For richer animations** (if the CSS-only approach feels insufficient):
+- Add `framer-motion` (`pnpm add framer-motion`).
+- Wrap section children in `<motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} viewport={{ once: true }}>`.
+- All animated elements must be in Client Components (`'use client'`) or wrapped with a `<MotionWrapper>` client component.
+
+### 11.5 Header polish
+
+- Add a background blur that activates on scroll: start transparent, transition to `bg-background/95 backdrop-blur-md` after 50px scroll. This requires a small Client Component wrapper or a CSS scroll-driven trick.
+- Current header already has `sticky top-0` + `backdrop-blur` — just needs the scroll-opacity trigger.
+
+### 11.6 Files to change
+
+| File | Change |
+|------|--------|
+| `app/globals.css` | Redefine CSS vars (§11.1) + add `.reveal` utility (§11.4) |
+| `components/sections/hero.tsx` | Dark gradient background + optional hero image + white text |
+| `components/sections/service-highlights.tsx` | Section bg + card hover states |
+| `components/sections/trust-badges.tsx` | `bg-blue-50` section + accent-coloured icons |
+| `components/sections/how-it-works.tsx` | Step number circles will auto-update from `--primary` change |
+| `components/sections/cta.tsx` | Replace `bg-primary` with brand gradient |
+| `components/layout/header.tsx` | Nav link underline animation; scroll-opacity if desired |
+| `app/[locale]/about/page.tsx` | Add hero image + richer section bgs |
+| `app/[locale]/services/page.tsx` | Card hover states |
+| `public/images/` | Add hero-bg.jpg and any supporting images |
+| `public/og-image.png` | Regenerate with colour palette |
+
+> **Do NOT** change `app/api/contact/route.ts`, `lib/env.ts`, `lib/ratelimit.ts`, `lib/schemas/contact.ts`, `app/sitemap.ts`, or `app/robots.ts` — those are functional files, not visual.

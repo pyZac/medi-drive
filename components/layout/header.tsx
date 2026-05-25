@@ -15,7 +15,7 @@ export async function Header({ locale }: { locale: string }) {
   const t = await getTranslations('nav');
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-40 border-b header-scroll-bg backdrop-blur-md">
       <nav
         className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
         aria-label="Main navigation"
@@ -29,7 +29,7 @@ export async function Header({ locale }: { locale: string }) {
             <li key={key}>
               <Link
                 href={navHrefs[key]}
-                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+                className="relative text-sm font-medium text-muted-foreground transition-colors hover:text-foreground after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-primary after:transition-all after:duration-300 hover:after:w-full after:content-['']"
               >
                 {t(key)}
               </Link>

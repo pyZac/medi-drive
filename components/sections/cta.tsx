@@ -7,7 +7,7 @@ export async function Cta() {
   const t = await getTranslations('home.cta');
 
   return (
-    <section className="bg-primary py-20 px-6">
+    <section className="bg-gradient-to-r from-blue-700 to-teal-600 py-20 px-6">
       <div className="mx-auto max-w-4xl text-center">
         <h2 className="text-2xl font-bold tracking-tight text-primary-foreground sm:text-3xl">
           {t('heading')}

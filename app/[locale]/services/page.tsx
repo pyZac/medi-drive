@@ -54,7 +54,7 @@ export default async function ServicesPage({
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {services.map(({ key, icon: Icon }) => (
-              <Card key={key}>
+              <Card key={key} className="hover:-translate-y-1 hover:shadow-lg transition-all duration-200">
                 <CardHeader>
                   <Icon className="size-8 text-primary mb-2" aria-hidden="true" />
                   <CardTitle>{t(`${key}.title`)}</CardTitle>

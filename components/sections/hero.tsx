@@ -7,12 +7,12 @@ export async function Hero() {
   const t = await getTranslations('home.hero');
 
   return (
-    <section className="bg-background py-24 px-6">
+    <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 py-24 px-6">
       <div className="mx-auto max-w-4xl">
-        <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+        <h1 className="reveal text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
           {t('title')}
         </h1>
-        <p className="mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
+        <p className="mt-6 max-w-2xl text-lg text-blue-100 sm:text-xl">
           {t('subtitle')}
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
@@ -24,7 +24,10 @@ export async function Hero() {
           </Link>
           <Link
             href="/services"
-            className={cn(buttonVariants({ variant: 'outline', size: 'lg' }))}
+            className={cn(
+              buttonVariants({ variant: 'outline', size: 'lg' }),
+              'border-white/70 bg-transparent text-white hover:bg-white/10 hover:text-white'
+            )}
           >
             {t('ctaServices')}
           </Link>

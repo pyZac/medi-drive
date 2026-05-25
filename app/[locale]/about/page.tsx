@@ -38,9 +38,9 @@ export default async function AboutPage({
 
   return (
     <>
-      <section className="bg-background py-20 px-6">
+      <section className="bg-white py-20 px-6">
         <div className="mx-auto max-w-4xl">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          <h1 className="reveal text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
             {t('heading')}
           </h1>
 
@@ -56,14 +56,14 @@ export default async function AboutPage({
         </div>
       </section>
 
-      <section className="bg-muted/40 py-20 px-6">
+      <section className="bg-slate-50 py-20 px-6">
         <div className="mx-auto max-w-6xl">
-          <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+          <h2 className="reveal text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             {t('valuesHeading')}
           </h2>
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {valueCards.map(({ icon: Icon, titleKey, descKey }) => (
-              <Card key={titleKey}>
+              <Card key={titleKey} className="hover:-translate-y-1 hover:shadow-lg transition-all duration-200">
                 <CardHeader>
                   <Icon className="size-8 text-primary mb-2" aria-hidden="true" />
                   <CardTitle>{t(titleKey)}</CardTitle>
@@ -77,7 +77,7 @@ export default async function AboutPage({
         </div>
       </section>
 
-      <section className="bg-background py-20 px-6">
+      <section className="bg-white py-20 px-6">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-2xl font-semibold text-foreground">{t('regulatoryHeading')}</h2>
           <p className="mt-4 text-muted-foreground leading-relaxed">{t('regulatoryText')}</p>

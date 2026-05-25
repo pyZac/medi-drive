@@ -12,10 +12,10 @@ export async function HowItWorks() {
   return (
     <section className="bg-muted/40 py-20 px-6">
       <div className="mx-auto max-w-6xl">
-        <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+        <h2 className="reveal text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
           {t('heading')}
         </h2>
-        <ol className="mt-10 grid gap-8 sm:grid-cols-3" role="list">
+        <ol className="reveal mt-10 grid gap-8 sm:grid-cols-3" role="list">
           {steps.map(({ num, titleKey, descKey }) => (
             <li key={num} className="flex flex-col gap-4">
               <div

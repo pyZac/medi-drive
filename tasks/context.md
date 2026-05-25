@@ -43,7 +43,7 @@ Audience is **B2B, non-technical, time-poor**. Pages should be skimmable: clear 
 | Hosting       | Vercel                                            | Stated requirement. Native Next.js, edge network, preview deploys. |
 | Pages         | Home, About, Services, Contact (+ legal)          | Per stakeholder; legal pages added (see §5).                       |
 | Domain        | `lablink-courier.de`                              | German TLD aligns with the primary market and the Impressum/Datenschutz legal frame. "-courier" suffix added for registrability and reinforces the service category. |
-| Brand assets  | To be designed                                    | Build uses a text-based logo placeholder and a neutral palette re-themable from one place (Tailwind config + logo component). |
+| Brand assets  | Phase 9 in progress                               | v1 used a neutral (grayscale) palette as a placeholder. Phase 9 replaces it with a professional medical-blue palette (primary ≈ blue-600, accent ≈ teal) + hero image + scroll animations. See `plan.md` §11. |
 
 ## 5. Legal pages (added — not optional)
 
