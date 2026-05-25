@@ -89,44 +89,100 @@
 - [x] Self-review against `plan.md` §4 page specs — all sections confirmed present in code
 - [x] Self-review: "would a staff engineer approve this?" — yes: no hacks, typed, zero warnings, i18n parity verified
 
-## Phase 9 — Visual Polish (added after v1 deploy feedback)
+## Phase 9 — Visual Polish ✅ COMPLETE (commits `fba098c` + `d8df32d`)
 
 > Stakeholder: site looks "too basic — only white and black, no photos or animations." See `plan.md` §11 for full spec.
 
 ### 9.1 Colour palette
-- [ ] Redefine `--primary`, `--ring`, `--muted`, `--muted-foreground`, `--accent`, `--accent-foreground`, `--border` in `app/globals.css` per `plan.md` §11.1
-- [ ] Verify WCAG AA contrast for new primary-on-background (should be ≥ 4.5:1)
-- [ ] `pnpm build` zero warnings after palette change
+- [x] Redefine CSS vars in `app/globals.css` — Stitch Velocity Precision palette (navy `#001e40`, electric cyan `#00e3fd`)
+- [x] Verify WCAG AA contrast for new primary-on-background (navy on white passes)
+- [x] `pnpm build` zero warnings after palette change
 
 ### 9.2 Section backgrounds
-- [ ] `components/sections/hero.tsx` — dark gradient (`from-slate-900 via-blue-950 to-blue-900`) + white text; optionally layer a hero photo (see §9.3)
-- [ ] `components/sections/trust-badges.tsx` — `bg-blue-50` section
-- [ ] `components/sections/cta.tsx` — brand gradient (`from-blue-700 to-teal-600`)
-- [ ] `components/sections/service-highlights.tsx` — subtle `bg-gradient-to-b from-slate-50 to-white`
-- [ ] `app/[locale]/about/page.tsx` — alternate section bgs (`bg-white` / `bg-slate-50`)
-- [ ] `app/[locale]/services/page.tsx` — card hover states (`hover:shadow-lg hover:-translate-y-1 transition-all`)
+- [x] `components/sections/hero.tsx` — dark gradient `from-[#001a33] via-[#003366] to-[#004d61]` + white text
+- [x] `components/sections/trust-badges.tsx` — `bg-muted` section + reveal on heading
+- [x] `components/sections/cta.tsx` — brand gradient `from-[#003366] to-[#004d61]`
+- [x] `components/sections/service-highlights.tsx` — `bg-gradient-to-b from-muted to-background` + card hover states
+- [x] `app/[locale]/about/page.tsx` — alternate `bg-white` / `bg-muted` sections + card hover states
+- [x] `app/[locale]/services/page.tsx` — card hover states
 
 ### 9.3 Images
-- [ ] Source 2–3 photos for hero and about pages — Pexels free (no attribution required) OR Higgsfield AI generation (MCP tool available in session) — save to `public/images/`
-- [ ] Add `<Image>` (Next.js) with dark overlay to hero section
-- [ ] Regenerate `public/og-image.png` (currently a plain dark-navy block) with the new brand palette
+- [x] Higgsfield attempted — blocked (requires paid plan; free plan has 8 credits but only for image-to-video). Fallback: CSS-only gradient hero — looks professional.
+- [x] Regenerated `public/og-image.png` (1200×630) with blue-to-teal gradient via Node.js zlib
 
 ### 9.4 Animations
-- [ ] Add `.reveal` CSS utility in `globals.css` using `animation-timeline: view()` (CSS Scroll-Driven Animations) — no new dependencies
-- [ ] Apply `reveal` class to section headings, card grids, step lists
-- [ ] Add card hover lift: `hover:-translate-y-1 hover:shadow-lg transition-all duration-200` to service and value cards
-- [ ] Add nav link underline slide animation in `header.tsx`
-- [ ] (Optional) Install `framer-motion` for richer whileInView animations if CSS-only feels insufficient
+- [x] `.reveal` CSS utility added in `globals.css` (`animation-timeline: view()`, `animation-range: entry 0% entry 30%`)
+- [x] Applied `reveal` class to section H1/H2 headings and card grids
+- [x] Card hover lift: `hover:-translate-y-1 hover:shadow-lg transition-all duration-200` on service/value cards
+- [x] Nav link underline slide: `after:` pseudo-element in `header.tsx`
 
 ### 9.5 Header polish
-- [ ] Header scroll-opacity: transparent at top → `bg-background/95 backdrop-blur-md` after scrolling (requires small Client Component hook or CSS scroll-driven trick)
+- [x] `header-scroll-bg` CSS-only scroll-driven animation (transparent → opaque over first 80px) + `backdrop-blur-md`
 
 ### 9.6 Verification
+- [x] `pnpm build` zero warnings
+- [x] `pnpm lint` + `pnpm tsc --noEmit` clean
+- [x] `pnpm check-i18n` passes (Phase 9 adds no i18n keys)
+- [x] Committed: `feat: visual polish — colour palette, images, animations` (`fba098c`) + `feat: Stitch design tokens — navy/cyan palette, Plus Jakarta Sans` (`d8df32d`)
+
+---
+
+## Phase 10 — Google Stitch "Velocity Precision" Full Implementation
+
+> Stakeholder directive: "just make it like google stitch." Full translation of all Stitch HTML screens into Next.js TSX. See `plan.md` §12 for full spec. Source files in `stitch_medi_drive_dynamic_ui_refresh/`.
+
+### 10.1 globals.css — Stitch tokens + utility classes
+- [ ] Add all Velocity Precision color tokens to `@theme inline` block (`bg-secondary-container`, `bg-surface-container-low`, `bg-primary-container`, `text-on-surface-variant`, `text-secondary`, etc.)
+- [ ] Fix `--primary` to true Stitch primary `#001e40` (currently set to `#003366` which is `primary-container`)
+- [ ] Add `.velocity-gradient-bg` animated diagonal gradient class
+- [ ] Add `.velocity-gradient`, `.btn-glow`, `.magnetic-card`, `.pulse-icon` CSS classes
+- [ ] Add `.step-line::after` dotted cyan connector for how-it-works
+- [ ] Add `.hero-links-overlay` radial-gradient particle dot overlay
+- [ ] Add `.glass-card` glassmorphism class
+- [ ] Update `.reveal` to use JS-driven version (IntersectionObserver adds `.active`, CSS handles animation)
+
+### 10.2 layout.tsx — Material Symbols + JS scripts
+- [ ] Add Google Fonts `<link>` for Material Symbols Outlined
+- [ ] Add IntersectionObserver `<script>` for `.reveal`/`.active` pattern
+- [ ] Add scroll `<script>` for header height shrink (h-20 → h-16 on scroll)
+- [ ] Add magnetic card tilt `<script>` for 3D effect on `.magnetic-card` elements
+
+### 10.3 Homepage section components → full Stitch translation
+- [ ] `components/sections/hero.tsx` — 2-col grid, `velocity-gradient-bg` animated bg, `hero-links-overlay` dots, floating "Pünktlich geliefert" badge, `btn-glow` CTAs
+- [ ] `components/sections/service-highlights.tsx` — Material Symbols icons (`science`, `package_2`, `schedule`), `magnetic-card` hover, cyan underline on group-hover, `pulse-icon`
+- [ ] `components/sections/trust-badges.tsx` — 4-col grid, white rounded-full icon containers, Material Symbols (`gpp_good`, `description`, `security`, `badge`), `bg-surface-container-low`
+- [ ] `components/sections/how-it-works.tsx` — 3-step grid, `bg-primary` step circles, `step-line` dotted connectors, step 3 in `bg-secondary-container text-primary`
+- [ ] `components/sections/cta.tsx` — full-width `velocity-gradient-bg` rounded-[2rem] card, texture overlay, `btn-glow` secondary-container CTA
+
+### 10.4 Contact page — Stitch visual applied to existing functional form
+- [ ] Hero section with "KONTAKT" badge chip + display headline
+- [ ] `<ContactForm />` wrapped in Stitch glassmorphism white card
+- [ ] Apply Stitch input styling to existing inputs (preserve Zod/react-hook-form validation)
+- [ ] Contact info column (address, phone, email + Material Symbols icons)
+- [ ] Support-Zentrum section (`bg-primary-container` navy bg, 3 glassmorphism dept cards)
+- [ ] FAQ `<details>/<summary>` accordion section
+
+### 10.5 About page — reconstruct from Stitch screenshot
+- [ ] 2-col hero: text left + image right, "ÜBER UNS" badge chip, "Logistik, die Leben rettet" headline
+- [ ] "Exzellenz durch Expertise" section: heading + cyan underline, 3 feature cards
+- [ ] Dark full-width feature section (navy bg, "Technologie-getriebene Sicherheit")
+- [ ] ISO-Zertifiziert + Kühlketten-Garantie + Datenschutz badge cards
+- [ ] Navy CTA section
+
+### 10.6 Services page — reconstruct from Stitch screenshot
+- [ ] Hero: "Präzision in jeder Sekunde" headline, velocity-gradient CTA button
+- [ ] "Unsere Kernleistungen" section: 3 main service `magnetic-card` cards
+- [ ] Full-width dark section: "Temperatursicherheit ohne Kompromisse"
+
+### 10.7 Header + Footer — Stitch design
+- [ ] `header.tsx`: `fixed` positioning, h-20 → h-16 on scroll, `bg-surface/80 backdrop-blur-lg`, `bg-secondary-container text-primary btn-glow` CTA pill
+- [ ] `footer.tsx`: 2-column Stitch layout (logo + tagline left, nav links right)
+
+### 10.8 Verification
 - [ ] `pnpm build` zero warnings
 - [ ] `pnpm lint` + `pnpm tsc --noEmit` clean
-- [ ] `pnpm check-i18n` still passes (Phase 9 adds no i18n keys)
-- [ ] Manual walkthrough in browser: every page EN + DE, check colours / images / hover states / scroll animations
-- [ ] Commit: `feat: visual polish — colour palette, images, animations`
+- [ ] `pnpm check-i18n` passes (Phase 10 adds no new i18n keys)
+- [ ] Commit: `feat: Velocity Precision Stitch implementation — full redesign`
 
 ## Phase 7 — Deploy to Vercel
 

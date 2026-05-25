@@ -214,6 +214,141 @@ Each is a clean addition later; none are required for the v1 informative site.
 
 ---
 
+## 12. Google Stitch "Velocity Precision" Full Implementation (Phase 10)
+
+> Stakeholder directive after Phase 9 deploy: "just make it like google stitch." Supersedes the Phase 9 blue-600 palette with the true Velocity Precision design system. Source: `stitch_medi_drive_dynamic_ui_refresh/`.
+
+### 12.0 Design system overview
+
+| Token | Value | Usage |
+|-------|-------|-------|
+| `primary` | `#001e40` (deep navy) | Background of step circles, icon containers |
+| `primary-container` | `#003366` | Header bg at rest, support-zentrum bg |
+| `on-primary-container` | `#d6e4ff` | Text on navy bg |
+| `secondary` | `#006875` (teal-dark) | Accent borders, step connector dots |
+| `secondary-container` | `#00e3fd` (electric cyan) | CTA button bg, step 3 circle |
+| `on-secondary-container` | `#001f24` | Text on cyan buttons |
+| `surface` | `#f7f9fb` | Page background |
+| `surface-container-low` | `#f2f4f6` | Section backgrounds (trust, how-it-works) |
+| `on-surface` | `#191c1e` | Body text |
+| `on-surface-variant` | `#44474a` | Subtext, captions |
+| `outline-variant` | `#c4c7ca` | Card borders |
+
+Font: **Plus Jakarta Sans** (already loaded via `next/font/google` in `app/[locale]/layout.tsx` as `--font-sans` variable).
+
+### 12.1 globals.css additions
+
+1. **Fix `--primary` CSS var** — change to `oklch` equivalent of `#001e40` (true Stitch primary, not `#003366`).
+2. **Add full token set to `@theme inline`** — so `bg-secondary-container`, `text-on-surface-variant`, `bg-primary-container`, etc. become Tailwind utility classes.
+3. **Add utility CSS classes** (from Stitch HTML `<style>` blocks):
+   - `.velocity-gradient-bg` — animated 4-stop diagonal gradient (15s infinite loop)
+   - `.velocity-gradient` — static 135deg linear from navy to cyan
+   - `.btn-glow` — cyan box-shadow on hover + `translateY(-2px)`
+   - `.magnetic-card` — cubic-bezier lift + scale + cyan border on hover
+   - `.pulse-icon` — 3s scale-pulse animation
+   - `.step-line::after` — dotted cyan connector (hidden on mobile, visible on md+)
+   - `.hero-links-overlay` — radial-gradient dot particle pattern (fades to transparent bottom)
+   - `.glass-card` — `rgba(255,255,255,0.7)` + `backdrop-filter: blur(12px)` + subtle border
+   - `.reveal` / `.reveal.active` — opacity+translateY, triggered by IntersectionObserver JS (replaces CSS scroll-driven version)
+   - `@keyframes gradient-shift`, `@keyframes fadeInUp`, `@keyframes pulse-soft`
+
+### 12.2 layout.tsx additions
+
+```tsx
+// Google Fonts link (in <head>)
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+// IntersectionObserver script (before </body>)
+<script dangerouslySetInnerHTML={{ __html: `
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('active'); observer.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+` }} />
+
+// Header scroll script
+<script dangerouslySetInnerHTML={{ __html: `
+  window.addEventListener('scroll', () => {
+    const h = document.querySelector('header');
+    if (!h) return;
+    h.classList.toggle('scrolled', window.scrollY > 50);
+  });
+` }} />
+```
+
+### 12.3 Homepage sections (translate from `lablink_animated_energetic_redesign/code.html`)
+
+**hero.tsx**:
+- `relative overflow-hidden velocity-gradient-bg` outer section
+- `hero-links-overlay` absolutely positioned particle overlay
+- 2-col grid (`lg:grid-cols-2`) — text col left, image col right
+- Text: "SCHNELL. SICHER. ZUVERLÄSSIG." badge chip (`bg-secondary-container/20 text-secondary-container`), H1, subtext, 2 CTA buttons (`btn-glow`)
+- Right col: `<Image>` of AI lab scene + floating card (`bg-white/10 backdrop-blur border border-white/20`) with `pulse-icon` check icon + "Pünktlich geliefert" stat
+
+**service-highlights.tsx**:
+- `bg-surface` section
+- H2 with cyan underline decoration (`after:content-[''] after:block after:w-16 after:h-1 after:bg-secondary-container after:mt-3`)
+- 3 `magnetic-card` cards: `bg-surface border border-outline-variant rounded-xl p-6`
+- Material Symbols icons in `bg-primary/10 text-primary rounded-full p-3` wrappers with `pulse-icon`
+- Card title hover: `group-hover:text-secondary transition-colors`
+
+**trust-badges.tsx**:
+- `bg-surface-container-low` section
+- Centered heading "Warum LabLink?" + 4-col grid
+- Each badge: `bg-white rounded-2xl p-6 text-center shadow-sm border border-outline-variant/30`
+- Material Symbols in `bg-primary rounded-full p-3 text-white` with `pulse-icon`
+
+**how-it-works.tsx**:
+- `bg-surface` section
+- H2 with cyan underline
+- 3-col grid, each step: `relative` container with `step-line::after` on first two items (md+)
+- Step circle: `bg-primary text-white w-12 h-12 rounded-full` for steps 1–2, `bg-secondary-container text-on-secondary-container` for step 3 (completion highlight)
+
+**cta.tsx**:
+- `velocity-gradient-bg rounded-[2rem] mx-6 lg:mx-auto max-w-5xl` inner card inside a `py-20 px-6` outer section
+- Texture overlay (`bg-[url(...)] opacity-5`)
+- H2 + subtext in white, `btn-glow bg-secondary-container text-on-secondary-container` CTA button
+
+### 12.4 Contact page (translate from `kontakt_lablink_medical_logistics/code.html`)
+
+Apply Stitch visuals while **preserving the existing functional `<ContactForm />` component** (Zod, react-hook-form, honeypot, rate-limit, Resend).
+
+- Top hero: `velocity-gradient` bg, "KONTAKT" badge chip, display headline
+- Contact grid: left col = info cards (address/phone/email with Material Symbols + `bg-secondary-fixed-dim/30` icon wrappers), right col = `glass-card` wrapping `<ContactForm />`
+- Apply Stitch input styles to form inputs via `className` overrides (still functional)
+- Support-Zentrum section: `bg-primary-container py-20`, 3 glassmorphism dept cards (Probenlogistik, Medizintechnik, Notfallkurier)
+- FAQ section: `<details>/<summary>` accordion with `rotate-180` chevron animation on open
+
+### 12.5 About page (reconstruct from `ber_uns_lablink_medical_logistics/screen.png`)
+
+- Hero: 2-col, "ÜBER UNS" badge chip, `velocity-gradient-bg` bg, H1 "Logistik, die Leben rettet", subtext, primary CTA
+- "Exzellenz durch Expertise": 3 feature `magnetic-card` cards (Medizinische Fachkenntnis, Vernetzte Plattform, Qualitätssicherung)
+- Dark full-width feature: `bg-primary py-20`, "Technologie-getriebene Sicherheit" headline + image overlay, 3 stat chips
+- Compliance badges: ISO-Zertifiziert, Kühlketten-Garantie, DSGVO badges in a 3-col strip
+- Navy CTA: `velocity-gradient-bg rounded-[2rem]` card, "Bereit für die Zukunft der Kliniklogistik?" headline
+
+### 12.6 Services page (reconstruct from `unsere_leistungen_lablink_medical_logistics/screen.png`)
+
+- Hero: `velocity-gradient-bg`, "Präzision in jeder Sekunde" headline, `btn-glow bg-secondary-container` CTA
+- "Unsere Kernleistungen": 3 `magnetic-card` cards (Probenlogistik, Medizintechnik, On-Demand)
+- Temperature section: full-width `bg-primary` with image overlay, "Temperatursicherheit ohne Kompromisse"
+
+### 12.7 Header + Footer
+
+**header.tsx**:
+- `fixed top-0 w-full z-50` positioning (was `sticky`)
+- `.scrolled` JS class: `h-16` (shrinks from `h-20`) + `shadow-lg`
+- Logo: `text-primary font-bold text-xl`
+- Nav links: `text-on-surface-variant hover:text-on-surface`, active item `text-secondary border-b-2 border-secondary`
+- CTA button: `bg-secondary-container text-on-secondary-container rounded-full px-5 py-2 btn-glow`
+
+**footer.tsx**:
+- `bg-primary-container text-on-primary-container`
+- 2-col: logo + tagline left, nav grid right
+- Bottom bar: copyright + legal links
+
+---
+
 ## 11. Visual Design (Phase 9 — added after v1 deploy feedback)
 
 > Stakeholder feedback after Vercel deploy: the site looks "too basic — only white and black, no photos or animations or colors." Phase 9 addresses this.

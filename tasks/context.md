@@ -43,7 +43,7 @@ Audience is **B2B, non-technical, time-poor**. Pages should be skimmable: clear 
 | Hosting       | Vercel                                            | Stated requirement. Native Next.js, edge network, preview deploys. |
 | Pages         | Home, About, Services, Contact (+ legal)          | Per stakeholder; legal pages added (see §5).                       |
 | Domain        | `lablink-courier.de`                              | German TLD aligns with the primary market and the Impressum/Datenschutz legal frame. "-courier" suffix added for registrability and reinforces the service category. |
-| Brand assets  | Phase 9 in progress                               | v1 used a neutral (grayscale) palette as a placeholder. Phase 9 replaces it with a professional medical-blue palette (primary ≈ blue-600, accent ≈ teal) + hero image + scroll animations. See `plan.md` §11. |
+| Brand assets  | **Velocity Precision** (locked — Phase 10 in progress) | v1 used grayscale. Phase 9 added blue-600 palette + CSS animations (commits `fba098c`/`d8df32d`). Phase 10 implements the full Google Stitch "Velocity Precision" design system: deep navy `#001e40`, electric cyan `#00e3fd`, Plus Jakarta Sans font, animated gradient backgrounds, magnetic-card hover, Material Symbols icons. Source: `stitch_medi_drive_dynamic_ui_refresh/`. See `plan.md` §12. |
 
 ## 5. Legal pages (added — not optional)
 
