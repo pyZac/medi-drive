@@ -119,7 +119,16 @@
       "message": "Message",
       "messagePlaceholder": "Tell us about your clinic or lab, the type of transport you need, and your typical volumes.",
       "consent": "I agree to LabLink processing my contact data to respond to this enquiry, in accordance with the privacy policy.",
-      "submit": "Send Message"
+      "submit": "Send Message",
+      "nameRequired": "Please enter your name.",
+      "orgRequired": "Please enter your organisation.",
+      "emailRequired": "Please enter your email address.",
+      "emailInvalid": "Please enter a valid email address.",
+      "messageRequired": "Please enter a message.",
+      "messageTooShort": "Message must be at least 20 characters.",
+      "consentRequired": "You must agree to the privacy policy to submit.",
+      "submitSuccess": "Message sent! We'll be in touch shortly.",
+      "submitError": "Something went wrong. Please try again or email us directly."
     }
   },
   "impressum": {

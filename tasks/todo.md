@@ -60,15 +60,15 @@
 
 ## Phase 4 — Contact form + Resend
 
-- [ ] `lib/schemas/contact.ts` — shared zod schema (name, org, email, phone?, subject, message, consent, honeypot)
-- [ ] `lib/env.ts` — zod-validated env loader; throws at boot if missing
-- [ ] `lib/ratelimit.ts` — in-memory IP rate limiter (5/hour)
-- [ ] `components/contact-form.tsx` — react-hook-form + zod resolver; success/error via sonner toast
-- [ ] `app/api/contact/route.ts` — validate → honeypot → rate-limit → Resend send → respond
-- [ ] Verify a Resend sender domain (stakeholder action) and add API key to `.env.local`
-- [ ] Manual test: submit valid form → arrives in inbox; submit invalid → user sees field errors
-- [ ] Manual test: honeypot filled → fake 200, no email sent
-- [ ] Manual test: 6th submission within an hour → rate-limited
+- [x] `lib/schemas/contact.ts` — shared zod schema (name, org, email, phone?, subject, message, consent, honeypot)
+- [x] `lib/env.ts` — zod-validated env loader; validates at call time (lazy, not module init)
+- [x] `lib/ratelimit.ts` — in-memory IP rate limiter (5/hour)
+- [x] `components/contact-form.tsx` — react-hook-form + custom zod resolver; success/error via sonner toast
+- [x] `app/api/contact/route.ts` — validate → honeypot → rate-limit → Resend send → respond
+- [!] Verify a Resend sender domain (stakeholder action) and add API key to `.env.local` — blocked: requires Resend account + domain DNS setup
+- [!] Manual test: submit valid form → arrives in inbox; submit invalid → user sees field errors — blocked: requires `.env.local` with real RESEND_API_KEY
+- [!] Manual test: honeypot filled → fake 200, no email sent — blocked: requires `.env.local`
+- [!] Manual test: 6th submission within an hour → rate-limited — blocked: requires `.env.local`
 
 ## Phase 5 — SEO & polish
 
@@ -152,3 +152,16 @@
 - `i18n/messages/en.json` + `de.json` — expanded to 115 keys each across 8 namespaces
 - `scripts/check-i18n.mjs` + `pnpm check-i18n` — CI key-parity guard (exits 1 if keys differ)
 - `pnpm build` — zero warnings; 12 routes (6 pages × 2 locales) all statically generated (SSG)
+
+### Phase 4 — What was built
+
+- `lib/schemas/contact.ts` — Zod v4 schema: name/org/email/phone?/subject(enum)/message(min20)/consent(literal true)/website(honeypot)
+- `lib/env.ts` — lazy `getEnv()` function (validates at call time, not import time, so build succeeds without `.env.local`)
+- `lib/ratelimit.ts` — module-level `Map<string, number[]>`, rolling 1-hour window, max 5 req/IP
+- `components/contact-form.tsx` — `'use client'`, react-hook-form + custom resolver (bypasses `@hookform/resolvers` Zod minor-version lock), sonner toasts, full a11y (aria-describedby, role=alert, aria-invalid)
+- `app/api/contact/route.ts` — POST: JSON parse → zod validate → honeypot check → rate limit → Resend send → `{ ok: true }`
+- `app/[locale]/contact/page.tsx` — static form JSX replaced with `<ContactForm />`
+- `i18n/messages/en.json` + `de.json` — 9 new validation/toast keys added; parity confirmed at 124 keys
+- `pnpm build` — zero warnings; 12 SSG routes + `/api/contact` dynamic
+- Surprises: `@hookform/resolvers` 5.4.0 checks `_zod.version.minor === 0` but Zod 4.4.3 reports minor=4 → used custom resolver. `lib/env.ts` can't parse at module init (Next.js evaluates dynamic routes at build) → moved to lazy `getEnv()`.
+- Lessons: L9 (`@hookform/resolvers` minor version mismatch), L10 (env.ts must be lazy for API routes)

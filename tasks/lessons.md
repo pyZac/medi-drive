@@ -63,6 +63,22 @@
 
 ---
 
+## L9 — `@hookform/resolvers` locks to a specific Zod minor version
+
+**Pattern**: `@hookform/resolvers` 5.4.0 type-checks `_zod.version.minor === 0`, but Zod 4.4.x reports `minor === 4`. This causes a TS error even though the runtime behaviour works fine.
+
+**Why**: The resolvers package was released when Zod 4.0.x was current. Zod's internal `_zod.version` object tracks the minor of the 4.x series (4.**4**.3 → minor=4), and the overload check is strict.
+
+**How to apply**: When `@hookform/resolvers/zod` fails with a `_zod.version.minor` mismatch, write a manual resolver that calls `schema.safeParse(values)` directly. It's a 5-line function, avoids the version coupling entirely, and works with any Zod release. Skip `zodResolver` until the packages re-sync.
+
+## L10 — `lib/env.ts` must validate lazily for Next.js API routes
+
+**Pattern**: A module-level `const env = envSchema.parse(process.env)` causes the build to fail when the file is imported by a dynamic route. Next.js evaluates dynamic routes during `page data collection`, so the parse runs without `.env.local` values.
+
+**Why**: Build fails with `ZodError: Invalid input: expected string, received undefined` for all required env vars, even though the API route would never be invoked at build time.
+
+**How to apply**: Export a function `getEnv()` that calls `envSchema.parse(process.env)` at call time, not at module init. Call it at the top of the route handler. The validation still throws loudly on missing vars — just at request time instead of build time.
+
 ## L5 — Repo-directory name vs. brand name can diverge
 
 **Pattern**: The working directory is `medi-drive` from when the brand was "MediDrive". Brand is now "LabLink". Renaming the dir mid-session on Windows with VS Code open is high-friction for low value — invisible to end users.

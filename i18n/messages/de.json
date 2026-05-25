@@ -119,7 +119,16 @@
       "message": "Nachricht",
       "messagePlaceholder": "Beschreiben Sie Ihre Klinik oder Ihr Labor, die Art des benötigten Transports und Ihre üblichen Mengen.",
       "consent": "Ich bin damit einverstanden, dass LabLink meine Kontaktdaten zur Beantwortung dieser Anfrage gemäß der Datenschutzerklärung verarbeitet.",
-      "submit": "Nachricht senden"
+      "submit": "Nachricht senden",
+      "nameRequired": "Bitte geben Sie Ihren Namen ein.",
+      "orgRequired": "Bitte geben Sie Ihre Organisation ein.",
+      "emailRequired": "Bitte geben Sie Ihre E-Mail-Adresse ein.",
+      "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein.",
+      "messageRequired": "Bitte geben Sie eine Nachricht ein.",
+      "messageTooShort": "Die Nachricht muss mindestens 20 Zeichen lang sein.",
+      "consentRequired": "Sie müssen der Datenschutzerklärung zustimmen, um das Formular abzusenden.",
+      "submitSuccess": "Nachricht gesendet! Wir melden uns in Kürze.",
+      "submitError": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt."
     }
   },
   "impressum": {

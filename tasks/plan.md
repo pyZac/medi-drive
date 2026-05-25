@@ -51,6 +51,7 @@ medi-drive/
 │   │   ├── hero.tsx
 │   │   ├── service-highlights.tsx
 │   │   ├── trust-badges.tsx
+│   │   ├── how-it-works.tsx
 │   │   └── cta.tsx
 │   └── contact-form.tsx
 ├── i18n/
@@ -66,6 +67,8 @@ medi-drive/
 ├── public/
 │   ├── og-image.png
 │   └── logo.svg
+├── scripts/
+│   └── check-i18n.mjs               # CI key-parity guard (exits 1 if en/de keys differ)
 ├── tasks/
 │   ├── context.md
 │   ├── plan.md
@@ -75,7 +78,7 @@ medi-drive/
 ├── .env.local                       # gitignored
 ├── proxy.ts                         # next-intl locale negotiation (Next.js 16: replaces middleware.ts)
 ├── next.config.ts
-├── tailwind.config.ts
+├── postcss.config.mjs               # Tailwind v4 config (no tailwind.config.ts)
 ├── tsconfig.json
 └── package.json
 ```
