@@ -18,7 +18,7 @@ export async function ServiceHighlights() {
   const t = await getTranslations('home.highlights');
 
   return (
-    <section className="bg-gradient-to-b from-slate-50 to-white py-20 px-6">
+    <section className="bg-gradient-to-b from-muted to-background py-20 px-6">
       <div className="mx-auto max-w-6xl">
         <h2 className="reveal text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
           {t('heading')}

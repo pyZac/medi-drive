@@ -7,7 +7,7 @@ export async function Hero() {
   const t = await getTranslations('home.hero');
 
   return (
-    <section className="bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 py-24 px-6">
+    <section className="bg-gradient-to-br from-[#001a33] via-[#003366] to-[#004d61] py-24 px-6">
       <div className="mx-auto max-w-4xl">
         <h1 className="reveal text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
           {t('title')}

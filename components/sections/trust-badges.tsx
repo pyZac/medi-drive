@@ -12,7 +12,7 @@ export async function TrustBadges() {
   const t = await getTranslations('home.trust');
 
   return (
-    <section className="bg-blue-50 py-16 px-6">
+    <section className="bg-muted py-16 px-6">
       <div className="mx-auto max-w-6xl">
         <h2 className="reveal text-center text-sm font-semibold uppercase tracking-widest text-muted-foreground">
           {t('heading')}

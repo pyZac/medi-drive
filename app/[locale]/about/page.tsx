@@ -56,7 +56,7 @@ export default async function AboutPage({
         </div>
       </section>
 
-      <section className="bg-slate-50 py-20 px-6">
+      <section className="bg-muted py-20 px-6">
         <div className="mx-auto max-w-6xl">
           <h2 className="reveal text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
             {t('valuesHeading')}
