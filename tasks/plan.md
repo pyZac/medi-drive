@@ -306,7 +306,7 @@ Font: **Plus Jakarta Sans** (already loaded via `next/font/google` in `app/[loca
 
 **cta.tsx**:
 - `velocity-gradient-bg rounded-[2rem] mx-6 lg:mx-auto max-w-5xl` inner card inside a `py-20 px-6` outer section
-- Texture overlay (`bg-[url(...)] opacity-5`)
+- Texture overlay (absolutely-positioned `<div>` with inline `style={{ backgroundImage: "url(...)" }}` and `opacity-5`)
 - H2 + subtext in white, `btn-glow bg-secondary-container text-on-secondary-container` CTA button
 
 ### 12.4 Contact page (translate from `kontakt_lablink_medical_logistics/code.html`)
