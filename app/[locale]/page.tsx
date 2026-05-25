@@ -1,5 +1,9 @@
-import { getTranslations } from 'next-intl/server';
 import { setRequestLocale } from 'next-intl/server';
+import { Hero } from '@/components/sections/hero';
+import { ServiceHighlights } from '@/components/sections/service-highlights';
+import { TrustBadges } from '@/components/sections/trust-badges';
+import { HowItWorks } from '@/components/sections/how-it-works';
+import { Cta } from '@/components/sections/cta';
 
 export default async function HomePage({
   params,
@@ -8,12 +12,14 @@ export default async function HomePage({
 }) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations('nav');
 
   return (
-    <div className="mx-auto max-w-4xl px-6 py-24">
-      <h1 className="text-4xl font-semibold tracking-tight">{t('home')}</h1>
-      <p className="mt-4 text-lg text-muted-foreground">LabLink — content coming in Phase 3.</p>
-    </div>
+    <>
+      <Hero />
+      <ServiceHighlights />
+      <TrustBadges />
+      <HowItWorks />
+      <Cta />
+    </>
   );
 }

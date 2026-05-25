@@ -50,13 +50,13 @@
 
 ## Phase 3 — Content pages
 
-- [ ] Home (`app/[locale]/page.tsx`): hero, service highlights, trust strip, how-it-works, final CTA
-- [ ] About (`app/[locale]/about/page.tsx`)
-- [ ] Services (`app/[locale]/services/page.tsx`) — service data in a typed array
-- [ ] Contact (`app/[locale]/contact/page.tsx`) — address column + form column
-- [ ] Impressum placeholder (clearly marked TODO for legal copy)
-- [ ] Datenschutz placeholder (clearly marked TODO for legal copy)
-- [ ] Fill `en.json` and `de.json` with all page strings; add CI script that errors if a key exists in one locale but not the other
+- [x] Home (`app/[locale]/page.tsx`): hero, service highlights, trust strip, how-it-works, final CTA
+- [x] About (`app/[locale]/about/page.tsx`)
+- [x] Services (`app/[locale]/services/page.tsx`) — service data in a typed array
+- [x] Contact (`app/[locale]/contact/page.tsx`) — address column + full static form (Phase 4 adds client-side validation + API)
+- [x] Impressum placeholder (amber notice box, clearly marked PLACEHOLDER sections)
+- [x] Datenschutz placeholder (amber notice box, clearly marked PLACEHOLDER sections)
+- [x] Fill `en.json` and `de.json` with all page strings (115 keys each); `scripts/check-i18n.mjs` errors if key parity fails
 
 ## Phase 4 — Contact form + Resend
 
@@ -113,32 +113,42 @@
 
 > Per claude.md §5 "Document Results": fill this in at the end of each work session.
 
-_To be completed after implementation._
-
-### What was built
+### Phase 1 — What was built (commit `d694878`)
 
 - Next.js 16.2.6 (App Router) + TypeScript + Tailwind v4 + shadcn/ui (base-nova style, neutral base colour) scaffolded into `e:\medi-drive`
 - shadcn components added: button, input, textarea, select, checkbox, label, card, sonner
 - Runtime deps installed: next-intl 4.12.0, react-hook-form 7.76.1, @hookform/resolvers 5.4.0, zod 4.4.3, resend 6.12.3, lucide-react 1.16.0
 - `.env.example` with four env-var keys (no values), `.env.local` gitignored via `.env*` pattern + `!.env.example` negation
 - `pnpm-workspace.yaml` with `allowBuilds` for all native packages (sharp, unrs-resolver, msw, @parcel/watcher, @swc/core)
-- `.claude/settings.local.json` excluded from git (machine-specific permissions)
 - Commit: `d694878` — `chore: initial scaffold`
+- Surprises: pnpm not pre-installed, Next.js 16 (not 15), shadcn needed second run, create-next-app rejects non-empty dirs → temp-move workaround
+- Lessons: L6 (pnpm allowBuilds), L7 (create-next-app non-empty dir)
 
-### What was deferred (and why)
+### Phase 2 — What was built (commit `43630da`)
 
-- Nothing from Phase 1 scope was deferred.
+- `i18n/routing.ts` — `defineRouting` (locales: en/de, default: en)
+- `i18n/request.ts` — `getRequestConfig` with async `requestLocale` pattern
+- `i18n/navigation.ts` — `createNavigation` for typed client-side `Link`/`useRouter`/`usePathname`
+- `proxy.ts` — next-intl locale-negotiation middleware (Next.js 16 renamed `middleware.ts` → `proxy.ts`)
+- `next.config.ts` — wrapped with `createNextIntlPlugin`
+- `app/layout.tsx` — stripped to `return children` (delegated to `[locale]/layout.tsx`)
+- `app/[locale]/layout.tsx` — Inter font, `setRequestLocale`, `NextIntlClientProvider`, skip-to-content, Header + main + Footer
+- `app/[locale]/page.tsx` — minimal placeholder
+- `components/layout/header.tsx`, `footer.tsx`, `locale-switcher.tsx`
+- `i18n/messages/en.json` + `de.json` — nav, footer, common namespaces
+- `pnpm build` — zero warnings; `/en` and `/de` statically generated (SSG)
+- Surprises: Next.js 16 deprecated `middleware.ts` in favour of `proxy.ts`
+- Lessons: L8 (proxy.ts naming)
 
-### Surprises / decisions changed mid-flight
+### Phase 3 — What was built
 
-- **pnpm not installed** on the machine — installed via `npm install -g pnpm` (v11.3.0).
-- **pnpm 11 build-script approval model**: every new package with native build scripts requires explicit approval in `pnpm-workspace.yaml` under `allowBuilds`. Hit this four times (sharp, unrs-resolver, msw, @parcel/watcher, @swc/core). After the first discovery, each new one required a one-line fix + `pnpm install`.
-- **`create-next-app` non-empty directory rejection**: the scaffolder exits with error if any non-hidden files/dirs exist. Worked around by temporarily moving `claude.md` and `tasks/` to `e:\__phase1_tmp`, scaffolding, then restoring them.
-- **Next.js 16** installed (plan was written when 15 was latest). No functional impact — App Router and all required APIs are identical.
-- **shadcn init needed a second run**: first run installed deps but was cut short by the `msw` build-script block before creating `lib/utils.ts` and updating `globals.css`. Fixed by approving `msw`, deleting the partial `components.json`, and re-running init cleanly.
-- **lucide-react already installed** by shadcn init — did not need to be passed to `pnpm add`.
-
-### Lessons to capture in `tasks/lessons.md`
-
-- L6: pnpm 11 `allowBuilds` pattern — add to workspace.yaml up front for known native packages (sharp, @swc/core, @parcel/watcher) to avoid repeated approve cycles.
-- L7: `create-next-app` rejects non-empty directories with non-hidden files — temp-move strategy works cleanly.
+- `components/sections/`: hero, service-highlights, trust-badges, how-it-works, cta — all async Server Components
+- `app/[locale]/page.tsx` — full Home page (5 sections)
+- `app/[locale]/about/page.tsx` — mission, story, values (Card grid), regulatory posture, Cta reused
+- `app/[locale]/services/page.tsx` — typed `ServiceDef[]` array, 5 services rendered as Cards
+- `app/[locale]/contact/page.tsx` — two-column layout: address + static HTML form (all Phase 4 fields present)
+- `app/[locale]/impressum/page.tsx` — amber placeholder notice + TMG section headings with [PLACEHOLDER] values
+- `app/[locale]/datenschutz/page.tsx` — amber placeholder notice + GDPR Art.13/14 headings with [PLACEHOLDER] values
+- `i18n/messages/en.json` + `de.json` — expanded to 115 keys each across 8 namespaces
+- `scripts/check-i18n.mjs` + `pnpm check-i18n` — CI key-parity guard (exits 1 if keys differ)
+- `pnpm build` — zero warnings; 12 routes (6 pages × 2 locales) all statically generated (SSG)

@@ -13,5 +13,145 @@
   "common": {
     "skipToContent": "Zum Hauptinhalt springen",
     "switchLocale": "Sprache wechseln"
+  },
+  "home": {
+    "hero": {
+      "title": "Die zuverlässige Verbindung zwischen Klinik und Labor",
+      "subtitle": "LabLink transportiert medizinische Proben und Verbrauchsmaterialien zwischen Kliniken und Laboren — pünktlich, jedes Mal.",
+      "ctaContact": "Kontakt aufnehmen",
+      "ctaServices": "Unsere Leistungen"
+    },
+    "highlights": {
+      "heading": "Was wir tun",
+      "card1Title": "Probentransport",
+      "card1Desc": "Sicherer, regelkonformer Transport diagnostischer Proben von der Klinik ins Labor unter lückenloser Dokumentation.",
+      "card2Title": "Lieferung von Verbrauchsmaterialien",
+      "card2Desc": "Zuverlässige Lieferung von Laborverbrauchsmaterialien und Medizinprodukten zwischen Partnerbetrieben.",
+      "card3Title": "Planmäßige Routen",
+      "card3Desc": "Regelmäßige, geplante Abhol- und Lieferrouten, abgestimmt auf die Abläufe Ihrer Klinik und Ihres Labors."
+    },
+    "trust": {
+      "heading": "Warum LabLink?",
+      "badge1": "Regulatorisch konform",
+      "badge2": "Lückenlose Dokumentation",
+      "badge3": "Vollständig versichert",
+      "badge4": "Geschultes Personal"
+    },
+    "howItWorks": {
+      "heading": "So funktioniert es",
+      "step1Title": "Abholung vereinbaren",
+      "step1Desc": "Kontaktieren Sie uns, um eine Abholzeit zu vereinbaren, die in den Ablauf Ihrer Klinik passt.",
+      "step2Title": "Sicherer Transport",
+      "step2Desc": "Ihre Proben werden in konformen, temperaturgerechten Behältern mit vollständiger Begleitdokumentation transportiert.",
+      "step3Title": "Bestätigte Lieferung",
+      "step3Desc": "Ihr Partnerlabor erhält die Proben und bestätigt den Eingang. Einfach, zuverlässig, dokumentiert."
+    },
+    "cta": {
+      "heading": "Bereit für eine Partnerschaft mit LabLink?",
+      "button": "Jetzt Kontakt aufnehmen"
+    }
+  },
+  "about": {
+    "heading": "Über LabLink",
+    "missionHeading": "Unsere Mission",
+    "missionText": "LabLink sorgt dafür, dass der Transport von medizinischen Proben und Verbrauchsmaterialien zwischen Kliniken und Laboren schnell, sicher und vollständig regelkonform abläuft. Wir glauben, dass sich das Gesundheitspersonal auf die Patienten konzentrieren sollte — nicht auf die Logistik.",
+    "storyHeading": "Unsere Geschichte",
+    "storyText": "[Platzhalter — Gründungsgeschichte durch den Auftraggeber zu ergänzen. Beispiel: LabLink wurde von Fachleuten für Gesundheitslogistik gegründet, die aus eigener Erfahrung wussten, wie unzuverlässiger Probentransport zu Verzögerungen bei Diagnosen und der Patientenversorgung führt.]",
+    "valuesHeading": "Unsere Werte",
+    "val1Title": "Genauigkeit",
+    "val1Desc": "Jede Probe wird verfolgt, dokumentiert und an den richtigen Ort geliefert.",
+    "val2Title": "Zuverlässigkeit",
+    "val2Desc": "Gleichbleibende Zeitpläne und Reaktionszeiten, auf die Ihr klinisches Team sich verlassen kann.",
+    "val3Title": "Compliance",
+    "val3Desc": "Einhaltung der Transportvorschriften für biologische Stoffe in jedem Schritt.",
+    "regulatoryHeading": "Regulatorische Ausrichtung",
+    "regulatoryText": "[Platzhalter — konkrete Zertifizierungen und Normen sind vor der Veröffentlichung durch den Auftraggeber zu bestätigen. LabLink arbeitet in Übereinstimmung mit den geltenden Vorschriften für den Transport biologischer Stoffe.]",
+    "ctaHeading": "Werden Sie Partner",
+    "ctaButton": "Kontakt aufnehmen"
+  },
+  "services": {
+    "heading": "Unsere Leistungen",
+    "intro": "LabLink bietet ein breites Spektrum an Kurierdiensten, die speziell für den Gesundheitssektor entwickelt wurden. Alle Leistungen sind vorbehaltlich der Bestätigung durch den Auftraggeber.",
+    "diagnosticTransport": {
+      "title": "Transport diagnostischer Proben",
+      "desc": "Transport diagnostischer Proben (Kategorie B, UN3373) von der Klinik ins Labor unter lückenloser Dokumentation.",
+      "includes": "Konforme Verpackung · Begleitdokumentation · Temperaturüberwachung (falls erforderlich)"
+    },
+    "routineRuns": {
+      "title": "Regelmäßige Probenläufe",
+      "desc": "Geplante, regelmäßige Abhol- und Lieferrouten zwischen Partnerkliniken und Laboren.",
+      "includes": "Feste Zeitfenster · Routenoptimierung · Empfangsbestätigung"
+    },
+    "urgentPickup": {
+      "title": "Dringende / Sofortabholungen",
+      "desc": "Wenn zeitkritische Proben nicht auf den nächsten planmäßigen Lauf warten können, schicken wir umgehend einen Kurier.",
+      "includes": "Priorisierter Versand · Schnelle Reaktion · Statusaktualisierungen"
+    },
+    "supplyDelivery": {
+      "title": "Lieferung von Laborverbrauchsmaterialien",
+      "desc": "Lieferung von Laborverbrauchsmaterialien, Reagenzien und Medizinprodukten zwischen Partnerbetrieben.",
+      "includes": "Sorgfältige Handhabung · Geplant oder auf Abruf · Liefernachweis"
+    },
+    "tempControlled": {
+      "title": "Temperaturgeführter Transport",
+      "desc": "[Vorbehaltlich Bestätigung] Transport von Proben oder Materialien, die kontrollierte Temperaturbedingungen erfordern.",
+      "includes": "Validierte Kühlkettenbehälter · Temperaturprotokollierung · Konforme Handhabung"
+    }
+  },
+  "contact": {
+    "heading": "Kontakt",
+    "subheading": "Nehmen Sie Kontakt auf, um zu besprechen, wie LabLink Ihre Klinik oder Ihr Labor unterstützen kann.",
+    "addressHeading": "Unsere Kontaktdaten",
+    "address": "[Adresse Platzhalter]",
+    "phone": "[Telefon Platzhalter]",
+    "email": "contact@lablink-courier.de",
+    "hours": "Mo–Fr 07:00–19:00 Uhr",
+    "form": {
+      "name": "Vollständiger Name",
+      "org": "Organisation (Klinik / Labor)",
+      "email": "E-Mail-Adresse",
+      "phone": "Telefon (optional)",
+      "subject": "Betreff",
+      "subjectGeneral": "Allgemeine Anfrage",
+      "subjectQuote": "Angebotsanfrage",
+      "subjectPartnership": "Partnerschaft",
+      "subjectOther": "Sonstiges",
+      "message": "Nachricht",
+      "messagePlaceholder": "Beschreiben Sie Ihre Klinik oder Ihr Labor, die Art des benötigten Transports und Ihre üblichen Mengen.",
+      "consent": "Ich bin damit einverstanden, dass LabLink meine Kontaktdaten zur Beantwortung dieser Anfrage gemäß der Datenschutzerklärung verarbeitet.",
+      "submit": "Nachricht senden"
+    }
+  },
+  "impressum": {
+    "heading": "Impressum",
+    "notice": "⚠ Diese Seite enthält Platzhalterinhalte. Vor der Veröffentlichung dieser Website muss ein rechtskonformes Impressum durch den Betreiber bereitgestellt werden. Das Betreiben einer kommerziellen Website in Deutschland ohne gültiges Impressum verstößt gegen § 5 TMG.",
+    "operatorHeading": "Angaben gemäß § 5 TMG",
+    "companyName": "[Unternehmensname — PLATZHALTER]",
+    "address": "[Straße, Hausnummer — PLATZHALTER]\n[PLZ, Ort — PLATZHALTER]\nDeutschland",
+    "contactHeading": "Kontakt",
+    "phone": "[Telefon — PLATZHALTER]",
+    "email": "contact@lablink-courier.de",
+    "registrationHeading": "Handelsregister",
+    "registration": "[Registergericht — PLATZHALTER]\n[Registernummer — PLATZHALTER]",
+    "vatHeading": "Umsatzsteuer-ID",
+    "vat": "[USt-IdNr. — PLATZHALTER]",
+    "directorHeading": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV",
+    "director": "[Name, Anschrift — PLATZHALTER]"
+  },
+  "datenschutz": {
+    "heading": "Datenschutzerklärung",
+    "notice": "⚠ Diese Seite enthält Platzhalterinhalte. Eine gültige, DSGVO-konforme Datenschutzerklärung muss vom Betreiber bereitgestellt und von einem Datenschutzbeauftragten geprüft werden, bevor diese Website in Betrieb geht.",
+    "controllerHeading": "Verantwortlicher",
+    "controllerText": "[Unternehmensname, Adresse — PLATZHALTER]",
+    "collectHeading": "Welche Daten wir erheben",
+    "collectText": "Wir erheben Kontaktformulardaten (Name, Organisation, E-Mail, Telefon, Nachricht) ausschließlich zur Beantwortung Ihrer Anfrage. [Vollständige Details — PLATZHALTER]",
+    "legalBasisHeading": "Rechtsgrundlage",
+    "legalBasisText": "Art. 6 Abs. 1 lit. b DSGVO (Vertrag / vorvertragliche Anfrage) oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung geschäftlicher Anfragen). [Vollständige Details — PLATZHALTER]",
+    "retentionHeading": "Speicherdauer",
+    "retentionText": "[Aufbewahrungsfrist — PLATZHALTER]",
+    "rightsHeading": "Ihre Rechte",
+    "rightsText": "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Übertragbarkeit und Widerspruch gemäß DSGVO. Um diese Rechte auszuüben, wenden Sie sich an: [Datenschutzkontakt — PLATZHALTER]",
+    "contactHeading": "Datenschutzkontakt",
+    "contactText": "[Datenschutzkontakt — PLATZHALTER]"
   }
 }

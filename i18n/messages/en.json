@@ -13,5 +13,145 @@
   "common": {
     "skipToContent": "Skip to main content",
     "switchLocale": "Switch language"
+  },
+  "home": {
+    "hero": {
+      "title": "The reliable link between clinic and lab",
+      "subtitle": "LabLink transports medical samples and supplies between clinics and laboratories — on time, every time.",
+      "ctaContact": "Contact Us",
+      "ctaServices": "Our Services"
+    },
+    "highlights": {
+      "heading": "What We Do",
+      "card1Title": "Specimen Transport",
+      "card1Desc": "Safe, compliant transport of diagnostic samples from clinic to laboratory under chain-of-custody conditions.",
+      "card2Title": "Supply Delivery",
+      "card2Desc": "Reliable delivery of lab consumables and medical supplies between partner facilities.",
+      "card3Title": "Scheduled Routes",
+      "card3Desc": "Regular, planned pickup and delivery routes tailored to your clinic and lab schedules."
+    },
+    "trust": {
+      "heading": "Why LabLink?",
+      "badge1": "Regulatory Compliant",
+      "badge2": "Chain of Custody",
+      "badge3": "Fully Insured",
+      "badge4": "Trained Personnel"
+    },
+    "howItWorks": {
+      "heading": "How It Works",
+      "step1Title": "Schedule a Pickup",
+      "step1Desc": "Contact us to arrange a pickup time that fits your clinic's workflow.",
+      "step2Title": "Secure Transit",
+      "step2Desc": "Your samples are transported in compliant, temperature-appropriate containers with full chain-of-custody documentation.",
+      "step3Title": "Confirmed Delivery",
+      "step3Desc": "Your partner laboratory receives the samples and confirms delivery. Simple, reliable, documented."
+    },
+    "cta": {
+      "heading": "Ready to partner with LabLink?",
+      "button": "Get in Touch"
+    }
+  },
+  "about": {
+    "heading": "About LabLink",
+    "missionHeading": "Our Mission",
+    "missionText": "LabLink exists to make the transport of medical samples and supplies between clinics and laboratories fast, safe, and fully compliant. We believe healthcare providers should spend their time on patients — not on logistics.",
+    "storyHeading": "Our Story",
+    "storyText": "[Placeholder — founding story to be supplied by stakeholder. Example: LabLink was founded by healthcare logistics professionals who saw first-hand how unreliable sample transport was causing delays in diagnoses and patient care.]",
+    "valuesHeading": "Our Values",
+    "val1Title": "Accuracy",
+    "val1Desc": "Every sample tracked, documented, and delivered to the right destination.",
+    "val2Title": "Reliability",
+    "val2Desc": "Consistent schedules and response times your clinical team can depend on.",
+    "val3Title": "Compliance",
+    "val3Desc": "Adherence to transport regulations for biological substances at every step.",
+    "regulatoryHeading": "Regulatory Posture",
+    "regulatoryText": "[Placeholder — specific certifications and regulatory standards to be confirmed by stakeholder before publication. LabLink operates in accordance with applicable regulations for the transport of biological substances.]",
+    "ctaHeading": "Partner with us",
+    "ctaButton": "Contact Us"
+  },
+  "services": {
+    "heading": "Our Services",
+    "intro": "LabLink provides a range of courier services specifically designed for the healthcare sector. All services are subject to confirmation of stakeholder details.",
+    "diagnosticTransport": {
+      "title": "Diagnostic Specimen Transport",
+      "desc": "Transport of diagnostic samples (Category B, UN3373) from clinic to laboratory under full chain-of-custody conditions.",
+      "includes": "Compliant packaging · Chain-of-custody documentation · Temperature monitoring (where required)"
+    },
+    "routineRuns": {
+      "title": "Routine Inter-Clinic Sample Runs",
+      "desc": "Scheduled, regular pickup and delivery routes between partner clinics and laboratories.",
+      "includes": "Fixed schedule slots · Route optimisation · Confirmation of receipt"
+    },
+    "urgentPickup": {
+      "title": "Urgent / On-Demand Pickup",
+      "desc": "When time-sensitive samples cannot wait for the next scheduled run, our on-demand service dispatches a courier promptly.",
+      "includes": "Priority dispatch · Rapid response · Real-time status updates"
+    },
+    "supplyDelivery": {
+      "title": "Lab Supplies & Consumables Delivery",
+      "desc": "Delivery of laboratory consumables, reagents, and medical supplies between partner facilities.",
+      "includes": "Careful handling · Scheduled or on-demand · Proof of delivery"
+    },
+    "tempControlled": {
+      "title": "Temperature-Controlled Transport",
+      "desc": "[Subject to confirmation] Transport of samples or supplies requiring controlled temperature conditions.",
+      "includes": "Validated cool-chain containers · Temperature logging · Compliant handling"
+    }
+  },
+  "contact": {
+    "heading": "Contact Us",
+    "subheading": "Get in touch to discuss how LabLink can support your clinic or laboratory.",
+    "addressHeading": "Our Details",
+    "address": "[Address Placeholder]",
+    "phone": "[Phone Placeholder]",
+    "email": "contact@lablink-courier.de",
+    "hours": "Mon–Fri 07:00–19:00",
+    "form": {
+      "name": "Full Name",
+      "org": "Organisation (clinic / lab name)",
+      "email": "Email Address",
+      "phone": "Phone (optional)",
+      "subject": "Subject",
+      "subjectGeneral": "General Enquiry",
+      "subjectQuote": "Service Quote",
+      "subjectPartnership": "Partnership",
+      "subjectOther": "Other",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your clinic or lab, the type of transport you need, and your typical volumes.",
+      "consent": "I agree to LabLink processing my contact data to respond to this enquiry, in accordance with the privacy policy.",
+      "submit": "Send Message"
+    }
+  },
+  "impressum": {
+    "heading": "Impressum",
+    "notice": "⚠ This page contains placeholder content. Real legal copy must be supplied by the operator before this site goes live. Operating a commercial website in Germany without a valid Impressum violates §5 TMG.",
+    "operatorHeading": "Angaben gemäß § 5 TMG",
+    "companyName": "[Company Name — PLACEHOLDER]",
+    "address": "[Street, House Number — PLACEHOLDER]\n[Postcode, City — PLACEHOLDER]\nGermany",
+    "contactHeading": "Kontakt",
+    "phone": "[Phone — PLACEHOLDER]",
+    "email": "contact@lablink-courier.de",
+    "registrationHeading": "Handelsregister",
+    "registration": "[Registergericht — PLACEHOLDER]\n[Registernummer — PLACEHOLDER]",
+    "vatHeading": "Umsatzsteuer-ID",
+    "vat": "[USt-IdNr. — PLACEHOLDER]",
+    "directorHeading": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV",
+    "director": "[Name, Address — PLACEHOLDER]"
+  },
+  "datenschutz": {
+    "heading": "Datenschutzerklärung",
+    "notice": "⚠ This page contains placeholder content. A valid GDPR-compliant privacy policy (Datenschutzerklärung) must be supplied by the operator and reviewed by a data protection professional before this site goes live.",
+    "controllerHeading": "Verantwortlicher",
+    "controllerText": "[Company Name, Address — PLACEHOLDER]",
+    "collectHeading": "Welche Daten wir erheben",
+    "collectText": "We collect contact form data (name, organisation, email, phone, message) solely to respond to your enquiry. [Full details — PLACEHOLDER]",
+    "legalBasisHeading": "Rechtsgrundlage",
+    "legalBasisText": "Art. 6 Abs. 1 lit. b DSGVO (contract / pre-contractual enquiry) or Art. 6 Abs. 1 lit. f DSGVO (legitimate interest in responding to business enquiries). [Full details — PLACEHOLDER]",
+    "retentionHeading": "Speicherdauer",
+    "retentionText": "[Retention period — PLACEHOLDER]",
+    "rightsHeading": "Ihre Rechte",
+    "rightsText": "You have the right to access, rectification, erasure, restriction, portability, and objection under GDPR. To exercise these rights contact: [DPO contact — PLACEHOLDER]",
+    "contactHeading": "Kontakt Datenschutz",
+    "contactText": "[Data protection contact — PLACEHOLDER]"
   }
 }
