@@ -8,7 +8,10 @@
   "footer": {
     "tagline": "Die zuverlässige Verbindung zwischen Klinik und Labor.",
     "impressum": "Impressum",
-    "datenschutz": "Datenschutz"
+    "datenschutz": "Datenschutz",
+    "navHeading": "Navigation",
+    "legalHeading": "Rechtliches",
+    "copyright": "© 2026 LabLink Medical Logistics. Präzision in jeder Sekunde."
   },
   "common": {
     "skipToContent": "Zum Hauptinhalt springen",
@@ -19,7 +22,9 @@
       "title": "Die zuverlässige Verbindung zwischen Klinik und Labor",
       "subtitle": "LabLink transportiert medizinische Proben und Verbrauchsmaterialien zwischen Kliniken und Laboren — pünktlich, jedes Mal.",
       "ctaContact": "Kontakt aufnehmen",
-      "ctaServices": "Unsere Leistungen"
+      "ctaServices": "Unsere Leistungen",
+      "badgeTitle": "Pünktlich geliefert",
+      "badgeSubtitle": "Präzision in jeder Sekunde"
     },
     "highlights": {
       "heading": "Was wir tun",
@@ -33,9 +38,13 @@
     "trust": {
       "heading": "Warum LabLink?",
       "badge1": "Regulatorisch konform",
+      "badge1Desc": "Vollständige Einhaltung aller Standards.",
       "badge2": "Lückenlose Dokumentation",
+      "badge2Desc": "Transparenz bei jedem Schritt.",
       "badge3": "Vollständig versichert",
-      "badge4": "Geschultes Personal"
+      "badge3Desc": "Maximaler Schutz Ihrer Fracht.",
+      "badge4": "Geschultes Personal",
+      "badge4Desc": "Experten für Medizintransport."
     },
     "howItWorks": {
       "heading": "So funktioniert es",
@@ -48,6 +57,7 @@
     },
     "cta": {
       "heading": "Bereit für eine Partnerschaft mit LabLink?",
+      "subtext": "Optimieren Sie Ihre klinische Logistik mit dem Marktführer für präzisen Probentransport.",
       "button": "Jetzt Kontakt aufnehmen"
     }
   },

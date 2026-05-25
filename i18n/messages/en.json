@@ -8,7 +8,10 @@
   "footer": {
     "tagline": "The reliable link between clinic and lab.",
     "impressum": "Impressum",
-    "datenschutz": "Privacy Policy"
+    "datenschutz": "Privacy Policy",
+    "navHeading": "Navigation",
+    "legalHeading": "Legal",
+    "copyright": "© 2026 LabLink Medical Logistics. Precision every second."
   },
   "common": {
     "skipToContent": "Skip to main content",
@@ -19,7 +22,9 @@
       "title": "The reliable link between clinic and lab",
       "subtitle": "LabLink transports medical samples and supplies between clinics and laboratories — on time, every time.",
       "ctaContact": "Contact Us",
-      "ctaServices": "Our Services"
+      "ctaServices": "Our Services",
+      "badgeTitle": "Delivered on time",
+      "badgeSubtitle": "Precision every second"
     },
     "highlights": {
       "heading": "What We Do",
@@ -33,9 +38,13 @@
     "trust": {
       "heading": "Why LabLink?",
       "badge1": "Regulatory Compliant",
+      "badge1Desc": "Full adherence to all standards.",
       "badge2": "Chain of Custody",
+      "badge2Desc": "Transparency at every step.",
       "badge3": "Fully Insured",
-      "badge4": "Trained Personnel"
+      "badge3Desc": "Maximum protection of your shipment.",
+      "badge4": "Trained Personnel",
+      "badge4Desc": "Experts in medical transport."
     },
     "howItWorks": {
       "heading": "How It Works",
@@ -48,6 +57,7 @@
     },
     "cta": {
       "heading": "Ready to partner with LabLink?",
+      "subtext": "Optimise your clinical logistics with the market leader in precise specimen transport.",
       "button": "Get in Touch"
     }
   },
