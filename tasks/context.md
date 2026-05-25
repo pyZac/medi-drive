@@ -108,4 +108,6 @@ Do **not** claim certifications that haven't been confirmed. Final copy must be 
 - Set up email hosting / mailbox for `contact@lablink-courier.de`.
 - Add Resend domain-verification DNS records (TXT + SPF + DKIM + DMARC) — needed before Phase 4 form testing and Phase 7 deploy.
 
-Answers and prerequisites will be folded in before launch. None of these block scaffolding or layout work in Phases 1–3.
+> **Phase 4 code is complete** (commit `07af0e9`). The contact form, Zod schema, rate limiter, and API route are all built. End-to-end testing (form → inbox) is blocked solely on the three prerequisites above.
+
+Answers and prerequisites will be folded in before launch. None of these block Phase 5 (SEO & polish) or Phase 6 (verification).

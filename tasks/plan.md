@@ -140,7 +140,7 @@ Each item rendered from a typed array — easy to extend in code.
 - Honeypot `website` field (hidden, must be empty)
 - Consent checkbox: "I agree to LabLink processing my data per the privacy policy" — required, links to `/datenschutz`.
 
-Validation: `zod` schema shared between client (`react-hook-form` resolver) and server (route handler).
+Validation: `zod` schema shared between client (custom `react-hook-form` resolver — see L9 in `lessons.md`) and server (route handler).
 
 ### 4.5 Impressum (`/[locale]/impressum`) & Datenschutz (`/[locale]/datenschutz`)
 
@@ -156,7 +156,7 @@ Scaffolded with **clearly marked placeholders**. Will not go to production until
 4. `resend.emails.send({ from: 'contact@<domain>', to: env.CONTACT_INBOX, replyTo: data.email, subject, html })`.
 5. Return `{ ok: true }` on success, generic 500 on send failure (log details server-side only).
 
-**Env vars** (validated at boot via `lib/env.ts`):
+**Env vars** (validated lazily via `getEnv()` in `lib/env.ts` — called inside the route handler, not at module init, so `pnpm build` succeeds without `.env.local`. See L10 in `lessons.md`):
 
 | Var                    | Purpose                                                          | Example                          |
 | ---------------------- | ---------------------------------------------------------------- | -------------------------------- |
