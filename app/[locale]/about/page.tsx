@@ -1,5 +1,6 @@
-import { getTranslations } from 'next-intl/server';
-import { setRequestLocale } from 'next-intl/server';
+import type { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { buildMetadata } from '@/lib/metadata';
 import { Target, Clock, ShieldCheck } from 'lucide-react';
 import {
   Card,
@@ -15,6 +16,16 @@ const valueCards = [
   { icon: Clock, titleKey: 'val2Title', descKey: 'val2Desc' },
   { icon: ShieldCheck, titleKey: 'val3Title', descKey: 'val3Desc' },
 ] as const;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'meta' });
+  return buildMetadata({ locale, pathname: '/about', title: t('aboutTitle'), description: t('aboutDescription') });
+}
 
 export default async function AboutPage({
   params,

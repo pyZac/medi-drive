@@ -1,5 +1,6 @@
-import { getTranslations } from 'next-intl/server';
-import { setRequestLocale } from 'next-intl/server';
+import type { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { buildMetadata } from '@/lib/metadata';
 import { FlaskConical, Repeat, Zap, Package, Thermometer, type LucideIcon } from 'lucide-react';
 import {
   Card,
@@ -22,6 +23,16 @@ const services: ServiceDef[] = [
   { key: 'supplyDelivery', icon: Package },
   { key: 'tempControlled', icon: Thermometer },
 ];
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'meta' });
+  return buildMetadata({ locale, pathname: '/services', title: t('servicesTitle'), description: t('servicesDescription') });
+}
 
 export default async function ServicesPage({
   params,

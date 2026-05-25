@@ -147,6 +147,20 @@
     "directorHeading": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV",
     "director": "[Name, Address — PLACEHOLDER]"
   },
+  "meta": {
+    "homeTitle": "LabLink — Reliable Medical Courier",
+    "homeDescription": "LabLink transports medical samples and supplies between clinics and laboratories in Germany — on time, every time.",
+    "aboutTitle": "About LabLink — Medical Courier",
+    "aboutDescription": "Learn about LabLink's mission, values, and commitment to reliable medical sample transport.",
+    "servicesTitle": "Services — LabLink Medical Courier",
+    "servicesDescription": "Specimen transport, urgent pickups, routine sample runs, and lab supply delivery for clinics and laboratories.",
+    "contactTitle": "Contact LabLink — Medical Courier",
+    "contactDescription": "Get in touch with LabLink to discuss courier services for your clinic or laboratory.",
+    "impressumTitle": "Impressum — LabLink",
+    "impressumDescription": "Legal notice (Impressum) for LabLink Courier in accordance with § 5 TMG.",
+    "datenschutzTitle": "Datenschutz — LabLink",
+    "datenschutzDescription": "Privacy policy (Datenschutzerklärung) for LabLink Courier in accordance with GDPR."
+  },
   "datenschutz": {
     "heading": "Datenschutzerklärung",
     "notice": "⚠ This page contains placeholder content. A valid GDPR-compliant privacy policy (Datenschutzerklärung) must be supplied by the operator and reviewed by a data protection professional before this site goes live.",

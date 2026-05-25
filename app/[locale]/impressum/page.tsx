@@ -1,6 +1,17 @@
-import { getTranslations } from 'next-intl/server';
-import { setRequestLocale } from 'next-intl/server';
+import type { Metadata } from 'next';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { buildMetadata } from '@/lib/metadata';
 import { TriangleAlert } from 'lucide-react';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'meta' });
+  return buildMetadata({ locale, pathname: '/impressum', title: t('impressumTitle'), description: t('impressumDescription') });
+}
 
 export default async function ImpressumPage({
   params,

@@ -147,6 +147,20 @@
     "directorHeading": "Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV",
     "director": "[Name, Anschrift — PLATZHALTER]"
   },
+  "meta": {
+    "homeTitle": "LabLink — Zuverlässiger Medizinkurier",
+    "homeDescription": "LabLink transportiert medizinische Proben und Verbrauchsmaterialien zwischen Kliniken und Laboren in Deutschland — pünktlich, jedes Mal.",
+    "aboutTitle": "Über LabLink — Medizinkurier",
+    "aboutDescription": "Erfahren Sie mehr über die Mission, Werte und das Engagement von LabLink für zuverlässigen Medizintransport.",
+    "servicesTitle": "Leistungen — LabLink Medizinkurier",
+    "servicesDescription": "Probentransport, Sofortabholungen, regelmäßige Probenläufe und Laborlieferungen für Kliniken und Labore.",
+    "contactTitle": "Kontakt — LabLink Medizinkurier",
+    "contactDescription": "Nehmen Sie Kontakt mit LabLink auf, um Kurierdienste für Ihre Klinik oder Ihr Labor zu besprechen.",
+    "impressumTitle": "Impressum — LabLink",
+    "impressumDescription": "Impressum von LabLink Courier gemäß § 5 TMG.",
+    "datenschutzTitle": "Datenschutz — LabLink",
+    "datenschutzDescription": "Datenschutzerklärung von LabLink Courier gemäß DSGVO."
+  },
   "datenschutz": {
     "heading": "Datenschutzerklärung",
     "notice": "⚠ Diese Seite enthält Platzhalterinhalte. Eine gültige, DSGVO-konforme Datenschutzerklärung muss vom Betreiber bereitgestellt und von einem Datenschutzbeauftragten geprüft werden, bevor diese Website in Betrieb geht.",
