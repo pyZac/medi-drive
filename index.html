@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LabLink — Spezialisierter Transport von Blutproben und medizinischen Materialien zwischen Kliniken und Laboren in Deutschland. GDP- und ADR-konform.">
+    <title>LabLink — Sicherer Bluttransport zwischen Kliniken und Laboren</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="brand">
+            <span class="brand-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v6"/>
+                    <path d="M9 5h6"/>
+                    <path d="M12 8c-2.5 3-4 5.5-4 8a4 4 0 0 0 8 0c0-2.5-1.5-5-4-8z"/>
+                </svg>
+            </span>
+            <span>LabLink</span>
+        </a>
+
+        <ul class="nav-links">
+            <li><a href="index.html" class="active" data-i18n="nav.home">Startseite</a></li>
+            <li><a href="about.html" data-i18n="nav.about">Über uns</a></li>
+            <li><a href="services.html" data-i18n="nav.services">Leistungen</a></li>
+            <li><a href="process.html" data-i18n="nav.process">Ablauf</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Kontakt</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <div class="lang-toggle">
+                <button data-lang="de" class="active">DE</button>
+                <button data-lang="en">EN</button>
+            </div>
+            <a href="contact.html" class="btn btn-primary desktop-only" data-i18n="nav.cta">Angebot anfordern</a>
+            <button class="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-grid">
+            <div class="hero-content reveal">
+                <span class="eyebrow" data-i18n="home.hero.eyebrow">Medizinischer Probentransport</span>
+                <h1>
+                    <span data-i18n="home.hero.title.1">Sicherer Transport.</span><br>
+                    <span data-i18n="home.hero.title.2">Präzise Übergabe.</span><br>
+                    <span class="accent" data-i18n="home.hero.title.accent">Verlässlich in ganz Deutschland.</span>
+                </h1>
+                <p class="lead" data-i18n="home.hero.lead">LabLink ist Ihr spezialisierter Partner für den temperaturgeführten Transport von Blutproben und biologischen Materialien zwischen Kliniken, Arztpraxen und Laboren — GDP- und ADR-konform, mit lückenloser Sendungsverfolgung.</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn btn-primary btn-lg" data-i18n="home.hero.cta1">Abholung anfragen</a>
+                    <a href="services.html" class="btn btn-secondary btn-lg" data-i18n="home.hero.cta2">Unsere Leistungen</a>
+                </div>
+                <div class="hero-trust">
+                    <div class="hero-trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span data-i18n="home.hero.trust.1">GDP-zertifizierte Prozesse</span>
+                    </div>
+                    <div class="hero-trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span data-i18n="home.hero.trust.2">ADR Klasse 6.2 zugelassen</span>
+                    </div>
+                    <div class="hero-trust-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                        <span data-i18n="home.hero.trust.3">Lückenlose Kühlkette</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual reveal">
+                <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&q=80" alt="Laboratory technician handling blood samples" loading="eager">
+                <div class="hero-floating-card card-1">
+                    <div class="hero-floating-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    </div>
+                    <div>
+                        <div class="hero-floating-card-label" data-i18n="home.hero.card1.label">Reaktionszeit</div>
+                        <div class="hero-floating-card-value" data-i18n="home.hero.card1.value">&lt; 60 Minuten</div>
+                    </div>
+                </div>
+                <div class="hero-floating-card card-2">
+                    <div class="hero-floating-card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    </div>
+                    <div>
+                        <div class="hero-floating-card-label" data-i18n="home.hero.card2.label">Sendungen sicher zugestellt</div>
+                        <div class="hero-floating-card-value" data-i18n="home.hero.card2.value">99,8 %</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats-strip">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="reveal">
+                <div class="stat-value" data-i18n="home.stats.1.value">24/7</div>
+                <div class="stat-label" data-i18n="home.stats.1.label">Verfügbarkeit & Notfalltransport</div>
+            </div>
+            <div class="reveal">
+                <div class="stat-value" data-i18n="home.stats.2.value">+500</div>
+                <div class="stat-label" data-i18n="home.stats.2.label">Kliniken & Labore betreut</div>
+            </div>
+            <div class="reveal">
+                <div class="stat-value" data-i18n="home.stats.3.value">15+</div>
+                <div class="stat-label" data-i18n="home.stats.3.label">Jahre Erfahrung im Medizinlogistikbereich</div>
+            </div>
+            <div class="reveal">
+                <div class="stat-value" data-i18n="home.stats.4.value">99,8 %</div>
+                <div class="stat-label" data-i18n="home.stats.4.label">Pünktlichkeitsquote bei Übergaben</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="eyebrow" data-i18n="home.features.eyebrow">Warum LabLink</span>
+            <h2 data-i18n="home.features.title">Spezialisiert. Zertifiziert. Verantwortungsvoll.</h2>
+            <p data-i18n="home.features.subtitle">Der Transport biologischer Proben verlangt mehr als nur Geschwindigkeit. Wir verbinden medizinische Sorgfalt mit logistischer Präzision.</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg>
+                </div>
+                <h3 data-i18n="home.features.1.title">Temperaturgeführter Transport</h3>
+                <p data-i18n="home.features.1.desc">Validierte Kühlboxen und Temperaturlogger sichern die Probenintegrität von der Abholung bis zur Übergabe — bei 2–8 °C, Raumtemperatur oder Tiefkühlung.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3z" transform="translate(-9 -3)"/><path d="M3 12c0 4.97 4.03 9 9 9 4.42 0 8.1-3.2 8.84-7.4"/><path d="M20.92 11.16C20.42 6.6 16.57 3 12 3 7.03 3 3 7.03 3 12"/></svg>
+                </div>
+                <h3 data-i18n="home.features.2.title">GDP-konforme Prozesse</h3>
+                <p data-i18n="home.features.2.desc">Unsere Abläufe entsprechen den EU-Richtlinien für Gute Vertriebspraxis (GDP) und gewährleisten Rückverfolgbarkeit auf jeder Stufe.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3h5v5"/><path d="M8 21H3v-5"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                </div>
+                <h3 data-i18n="home.features.3.title">ADR-zertifizierte Fahrer</h3>
+                <p data-i18n="home.features.3.desc">Alle Fahrer verfügen über ADR-Schulungen für Klasse 6.2 (ansteckungsgefährliche Stoffe, UN3373) und werden regelmäßig nachgeschult.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 1.892.402 3.13 1.5 4.5L12 22l6.5-7.5c1.098-1.37 1.5-2.608 1.5-4.5a8 8 0 0 0-8-8z"/></svg>
+                </div>
+                <h3 data-i18n="home.features.4.title">Echtzeit-Tracking</h3>
+                <p data-i18n="home.features.4.desc">Jede Sendung wird per GPS verfolgt. Ihr Labor erhält Statusbenachrichtigungen bei Abholung, Transport und Anlieferung.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                </div>
+                <h3 data-i18n="home.features.5.title">Notfall- und STAT-Transporte</h3>
+                <p data-i18n="home.features.5.desc">Dringende Proben werden innerhalb von 60 Minuten abgeholt und auf direktem Weg per Sonderkurier zugestellt.</p>
+            </div>
+            <div class="feature-card reveal">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3 data-i18n="home.features.6.title">Dezidiertes Servicepersonal</h3>
+                <p data-i18n="home.features.6.desc">Ein fester Ansprechpartner kennt Ihre Routen, Zeitfenster und Anforderungen — keine Warteschleifen, keine wechselnden Disponenten.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ COMPLIANCE ============ -->
+<section class="section section-tinted">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="eyebrow" data-i18n="home.compliance.eyebrow">Zertifikate & Standards</span>
+            <h2 data-i18n="home.compliance.title">Geprüfte Qualität, dokumentierte Sicherheit</h2>
+            <p data-i18n="home.compliance.subtitle">Wir arbeiten ausschließlich nach geltenden europäischen und deutschen Vorschriften für den Transport medizinischer Proben.</p>
+        </div>
+        <div class="compliance-grid">
+            <div class="compliance-card reveal">
+                <div class="compliance-badge" data-i18n="home.compliance.1.badge">GDP</div>
+                <div>
+                    <h4 data-i18n="home.compliance.1.title">EU GDP-Leitlinien</h4>
+                    <p data-i18n="home.compliance.1.desc">Gute Vertriebspraxis nach 2013/C 343/01</p>
+                </div>
+            </div>
+            <div class="compliance-card reveal">
+                <div class="compliance-badge" data-i18n="home.compliance.2.badge">ADR 6.2</div>
+                <div>
+                    <h4 data-i18n="home.compliance.2.title">ADR-Klasse 6.2</h4>
+                    <p data-i18n="home.compliance.2.desc">Ansteckungsgefährliche Stoffe (UN3373, UN2814)</p>
+                </div>
+            </div>
+            <div class="compliance-card reveal">
+                <div class="compliance-badge" data-i18n="home.compliance.3.badge">ISO 9001</div>
+                <div>
+                    <h4 data-i18n="home.compliance.3.title">Qualitätsmanagement</h4>
+                    <p data-i18n="home.compliance.3.desc">Zertifizierte Prozesse und kontinuierliche Verbesserung</p>
+                </div>
+            </div>
+            <div class="compliance-card reveal">
+                <div class="compliance-badge" data-i18n="home.compliance.4.badge">DSGVO</div>
+                <div>
+                    <h4 data-i18n="home.compliance.4.title">Datenschutz</h4>
+                    <p data-i18n="home.compliance.4.desc">Vollständig DSGVO-konform, Patientendaten geschützt</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ SERVICES PREVIEW ============ -->
+<section class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="eyebrow" data-i18n="home.services.eyebrow">Unsere Leistungen</span>
+            <h2 data-i18n="home.services.title">Logistik, die Medizin versteht</h2>
+            <p data-i18n="home.services.subtitle">Vom Routine-Kurier bis zum dringenden Notfall-Transport — wir bieten passgenaue Lösungen für jede klinische Anforderung.</p>
+        </div>
+
+        <div class="alt-block reveal">
+            <div class="alt-content">
+                <h3 data-i18n="services.1.title">Bluttransporte zwischen Klinik und Labor</h3>
+                <p data-i18n="services.1.desc">Unser Kernbereich: temperaturgeführter Transport von Blutproben (EDTA, Serum, Citrat, Vollblut) zwischen Entnahmestellen und diagnostischen Laboren. Geplante Routen oder On-Demand-Abholung.</p>
+                <ul class="check-list">
+                    <li data-i18n="home.hero.trust.1">GDP-zertifizierte Prozesse</li>
+                    <li data-i18n="home.hero.trust.2">ADR Klasse 6.2 zugelassen</li>
+                    <li data-i18n="home.hero.trust.3">Lückenlose Kühlkette</li>
+                </ul>
+                <div style="margin-top: 2rem;">
+                    <a href="services.html" class="btn btn-primary" data-i18n="common.learnMore">Mehr erfahren</a>
+                </div>
+            </div>
+            <div class="alt-visual">
+                <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=800&q=80" alt="Medical courier with sample box">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="cta-banner">
+    <div class="container">
+        <div class="cta-banner-inner">
+            <div class="reveal">
+                <h2 data-i18n="home.cta.title">Bereit, Ihre Probenlogistik zu professionalisieren?</h2>
+                <p data-i18n="home.cta.text">Sprechen Sie mit unserem Team über Routen, Zeitfenster und individuelle Vereinbarungen für Ihre Einrichtung.</p>
+            </div>
+            <div class="cta-banner-actions reveal">
+                <a href="contact.html" class="btn btn-primary btn-lg" style="background:#fff;color:var(--primary);" data-i18n="home.cta.btn1">Kostenloses Angebot</a>
+                <a href="tel:+49" class="btn btn-ghost btn-lg" data-i18n="home.cta.btn2">+49 (0) ___ _______</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="brand">
+                    <span class="brand-mark">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v6"/><path d="M9 5h6"/>
+                            <path d="M12 8c-2.5 3-4 5.5-4 8a4 4 0 0 0 8 0c0-2.5-1.5-5-4-8z"/>
+                        </svg>
+                    </span>
+                    <span>LabLink</span>
+                </a>
+                <p data-i18n="footer.tagline">Spezialisierter Transport von Blutproben und medizinischen Materialien — sicher, präzise und zertifiziert. Ihr Logistikpartner für die diagnostische Versorgungskette in Deutschland.</p>
+            </div>
+            <div>
+                <h5 data-i18n="footer.col2.title">Unternehmen</h5>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav.home">Startseite</a></li>
+                    <li><a href="about.html" data-i18n="nav.about">Über uns</a></li>
+                    <li><a href="process.html" data-i18n="nav.process">Ablauf</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">Kontakt</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 data-i18n="footer.col3.title">Leistungen</h5>
+                <ul>
+                    <li><a href="services.html" data-i18n="services.1.title">Bluttransporte</a></li>
+                    <li><a href="services.html" data-i18n="services.2.title">Notfall-Transporte</a></li>
+                    <li><a href="services.html" data-i18n="services.3.title">Gewebeproben</a></li>
+                    <li><a href="services.html" data-i18n="services.6.title">Routenfahrten</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 data-i18n="footer.col4.title">Kontakt</h5>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span data-i18n="contact.info.phone.value">+49 (0) ___ _______</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span data-i18n="contact.info.email.value">kontakt@____.de</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span data-i18n="contact.info.hours.value">Mo–Fr: 07:00 – 19:00</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© <span id="year"></span> LabLink. <span data-i18n="common.allRights">Alle Rechte vorbehalten.</span></div>
+            <div class="footer-legal">
+                <a href="#" data-i18n="footer.legal.imprint">Impressum</a>
+                <a href="#" data-i18n="footer.legal.privacy">Datenschutz</a>
+                <a href="#" data-i18n="footer.legal.terms">AGB</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

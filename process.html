@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LabLink Ablauf — Von der Anfrage über die sichere Abholung bis zur dokumentierten Übergabe an das Labor. Validierte Kühlkette und GPS-Tracking.">
+    <title>Ablauf — LabLink</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="brand">
+            <span class="brand-mark">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v6"/><path d="M9 5h6"/>
+                    <path d="M12 8c-2.5 3-4 5.5-4 8a4 4 0 0 0 8 0c0-2.5-1.5-5-4-8z"/>
+                </svg>
+            </span>
+            <span>LabLink</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" data-i18n="nav.home">Startseite</a></li>
+            <li><a href="about.html" data-i18n="nav.about">Über uns</a></li>
+            <li><a href="services.html" data-i18n="nav.services">Leistungen</a></li>
+            <li><a href="process.html" class="active" data-i18n="nav.process">Ablauf</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Kontakt</a></li>
+        </ul>
+        <div class="nav-actions">
+            <div class="lang-toggle">
+                <button data-lang="de" class="active">DE</button>
+                <button data-lang="en">EN</button>
+            </div>
+            <a href="contact.html" class="btn btn-primary desktop-only" data-i18n="nav.cta">Angebot anfordern</a>
+            <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </div>
+</nav>
+
+<header class="page-header">
+    <div class="container">
+        <div class="page-header-inner">
+            <div class="breadcrumb">
+                <a href="index.html" data-i18n="crumb.home">Startseite</a>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                <span data-i18n="nav.process">Ablauf</span>
+            </div>
+            <h1 data-i18n="process.header.title">So funktioniert es</h1>
+            <p data-i18n="process.header.subtitle">Von der ersten Anfrage bis zur dokumentierten Übergabe — ein klarer, transparenter Ablauf.</p>
+        </div>
+    </div>
+</header>
+
+<!-- 5 Steps -->
+<section class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="eyebrow" data-i18n="process.steps.eyebrow">Unser Ablauf</span>
+            <h2 data-i18n="process.steps.title">Fünf Schritte bis zur sicheren Übergabe</h2>
+            <p data-i18n="process.steps.subtitle">Jeder Auftrag durchläuft denselben strukturierten Prozess — egal ob Routine oder Notfall.</p>
+        </div>
+        <div class="process-grid">
+            <div class="process-step reveal">
+                <div class="process-step-number">01</div>
+                <h3 data-i18n="process.step1.title">Anfrage & Beratung</h3>
+                <p data-i18n="process.step1.desc">Sie melden sich telefonisch oder online. Wir besprechen Routen, Zeitfenster, Temperaturanforderungen und vereinbaren Konditionen.</p>
+            </div>
+            <div class="process-step reveal">
+                <div class="process-step-number">02</div>
+                <h3 data-i18n="process.step2.title">Abholung vereinbaren</h3>
+                <p data-i18n="process.step2.desc">Einmalig oder als feste Route — Sie wählen, wann und wie oft wir bei Ihnen abholen. Bei Notfällen reicht ein Anruf.</p>
+            </div>
+            <div class="process-step reveal">
+                <div class="process-step-number">03</div>
+                <h3 data-i18n="process.step3.title">Sichere Abholung</h3>
+                <p data-i18n="process.step3.desc">Unser geschulter Kurier holt die Proben in validierten Kühlbehältern ab. Übergabe wird digital dokumentiert und temperaturgeloggt.</p>
+            </div>
+            <div class="process-step reveal">
+                <div class="process-step-number">04</div>
+                <h3 data-i18n="process.step4.title">Transport mit Tracking</h3>
+                <p data-i18n="process.step4.desc">Auf dem Weg zum Empfänger wird die Sendung per GPS verfolgt. Temperatur und Standort sind jederzeit nachvollziehbar.</p>
+            </div>
+            <div class="process-step reveal">
+                <div class="process-step-number">05</div>
+                <h3 data-i18n="process.step5.title">Dokumentierte Übergabe</h3>
+                <p data-i18n="process.step5.desc">Am Ziellabor wird die Übergabe quittiert. Sie erhalten eine digitale Bestätigung inklusive Temperaturprotokoll.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Detail blocks -->
+<section class="section section-tinted">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="eyebrow" data-i18n="process.detail.eyebrow">Im Detail</span>
+        </div>
+
+        <div class="alt-block">
+            <div class="alt-content reveal">
+                <h2 data-i18n="process.detail.title.1">Validierte Kühlkette</h2>
+                <p data-i18n="process.detail.p.1">Wir verwenden ausschließlich qualifizierte Transportbehälter mit kalibrierten Temperaturloggern. Vor jedem Einsatz werden die Boxen vorkonditioniert — je nach Anforderung auf 2–8 °C, 15–25 °C oder unter -20 °C.</p>
+                <ul class="check-list">
+                    <li data-i18n="process.detail.check.1.1">Kalibrierte Datenlogger in jeder Sendung</li>
+                    <li data-i18n="process.detail.check.1.2">Vollständige Temperaturkurve nach Übergabe verfügbar</li>
+                    <li data-i18n="process.detail.check.1.3">Bei Abweichung: sofortige Benachrichtigung</li>
+                    <li data-i18n="process.detail.check.1.4">Validierungsdokumentation auf Anfrage</li>
+                </ul>
+            </div>
+            <div class="alt-visual reveal">
+                <img src="https://images.unsplash.com/photo-1583912267550-aae0c5c34ef9?w=800&q=80" alt="Temperature controlled medical box">
+            </div>
+        </div>
+
+        <div class="alt-block reverse">
+            <div class="alt-content reveal">
+                <h2 data-i18n="process.detail.title.2">GPS-Tracking & Benachrichtigungen</h2>
+                <p data-i18n="process.detail.p.2">Jede Sendung wird in Echtzeit verfolgt. Auftraggeber und Empfänger erhalten automatisierte Statusmeldungen — bei Abholung, unterwegs und bei Anlieferung.</p>
+                <ul class="check-list">
+                    <li data-i18n="process.detail.check.2.1">Live-GPS-Ortung jeder Sendung</li>
+                    <li data-i18n="process.detail.check.2.2">Statusbenachrichtigungen per E-Mail/SMS</li>
+                    <li data-i18n="process.detail.check.2.3">Digitales Übergabeprotokoll</li>
+                    <li data-i18n="process.detail.check.2.4">Sicheres Kundenportal (auf Anfrage)</li>
+                </ul>
+            </div>
+            <div class="alt-visual reveal">
+                <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80" alt="GPS tracking and logistics dashboard">
+            </div>
+        </div>
+
+        <div class="alt-block">
+            <div class="alt-content reveal">
+                <h2 data-i18n="process.detail.title.3">Geschultes Kurierteam</h2>
+                <p data-i18n="process.detail.p.3">Unsere Kuriere sind nicht einfach Fahrer — sie sind ADR-geschult, kennen klinische Abläufe und arbeiten nach festen Standardarbeitsanweisungen. Regelmäßige Nachschulungen sichern den Wissensstand.</p>
+                <ul class="check-list">
+                    <li data-i18n="process.detail.check.3.1">ADR-Schulung Klasse 6.2</li>
+                    <li data-i18n="process.detail.check.3.2">Hygiene- und Infektionsschutzunterweisung</li>
+                    <li data-i18n="process.detail.check.3.3">Schulung in GDP und Probenhandhabung</li>
+                    <li data-i18n="process.detail.check.3.4">Jährliche Auffrischungskurse</li>
+                </ul>
+            </div>
+            <div class="alt-visual reveal">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80" alt="Trained medical courier">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+    <div class="container">
+        <div class="section-header reveal">
+            <span class="eyebrow" data-i18n="process.faq.eyebrow">Häufige Fragen</span>
+            <h2 data-i18n="process.faq.title">Antworten auf Ihre Fragen</h2>
+        </div>
+        <div class="faq-list">
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    <span data-i18n="process.faq.1.q">Welche Probenarten transportieren Sie?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner" data-i18n="process.faq.1.a">Wir transportieren Vollblut, Serum, Plasma, Urin, Stuhl, Sputum, Abstriche, Gewebeproben, Zellkulturen sowie weitere diagnostische Materialien. Auch genetisches Material und Spezialproben (z. B. Liquor) sind möglich. Bei Unsicherheit sprechen Sie uns einfach an.</div>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    <span data-i18n="process.faq.2.q">Wie schnell können Sie eine Abholung organisieren?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner" data-i18n="process.faq.2.a">Für Notfall-Transporte ist unsere Reaktionszeit unter 60 Minuten in Ballungsräumen. Routinemäßige Abholungen erfolgen nach festen Zeitfenstern, die wir gemeinsam mit Ihnen abstimmen.</div>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    <span data-i18n="process.faq.3.q">Sind Sie ADR-zertifiziert für ansteckungsgefährliche Stoffe?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner" data-i18n="process.faq.3.a">Ja. Alle Fahrer und Fahrzeuge sind für ADR Klasse 6.2 (UN3373 und ggf. UN2814) zugelassen. Wir verfügen über die erforderlichen Schulungsnachweise und Ausrüstung gemäß ADR.</div>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    <span data-i18n="process.faq.4.q">Wie wird die Temperatur während des Transports überwacht?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner" data-i18n="process.faq.4.a">In jeder Sendung befindet sich ein kalibrierter Datenlogger, der die Temperatur kontinuierlich aufzeichnet. Nach der Übergabe stellen wir Ihnen das Temperaturprotokoll zur Verfügung. Bei Abweichungen werden Sie sofort benachrichtigt.</div>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    <span data-i18n="process.faq.5.q">Bedienen Sie ganz Deutschland?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner" data-i18n="process.faq.5.a">Ja. Wir haben regionale Stützpunkte und ein deutschlandweites Routennetz. Für Spezialtransporte ins europäische Ausland sprechen Sie uns bitte direkt an.</div>
+                </div>
+            </div>
+            <div class="faq-item reveal">
+                <button class="faq-question">
+                    <span data-i18n="process.faq.6.q">Welche Verträge bieten Sie an?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner" data-i18n="process.faq.6.a">Wir bieten Einmal-Aufträge, Rahmenverträge für regelmäßige Abholungen und individuelle Service-Level-Vereinbarungen (SLA) für Großkunden. Ihr Ansprechpartner erstellt Ihnen gerne ein passendes Angebot.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+    <div class="container">
+        <div class="cta-banner-inner">
+            <div class="reveal">
+                <h2 data-i18n="home.cta.title">Bereit, Ihre Probenlogistik zu professionalisieren?</h2>
+                <p data-i18n="home.cta.text">Sprechen Sie mit unserem Team über Routen, Zeitfenster und individuelle Vereinbarungen für Ihre Einrichtung.</p>
+            </div>
+            <div class="cta-banner-actions reveal">
+                <a href="contact.html" class="btn btn-primary btn-lg" style="background:#fff;color:var(--primary);" data-i18n="home.cta.btn1">Kostenloses Angebot</a>
+                <a href="tel:+49" class="btn btn-ghost btn-lg" data-i18n="home.cta.btn2">+49 (0) ___ _______</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="brand">
+                    <span class="brand-mark">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2v6"/><path d="M9 5h6"/>
+                            <path d="M12 8c-2.5 3-4 5.5-4 8a4 4 0 0 0 8 0c0-2.5-1.5-5-4-8z"/>
+                        </svg>
+                    </span>
+                    <span>LabLink</span>
+                </a>
+                <p data-i18n="footer.tagline">Spezialisierter Transport von Blutproben und medizinischen Materialien — sicher, präzise und zertifiziert. Ihr Logistikpartner für die diagnostische Versorgungskette in Deutschland.</p>
+            </div>
+            <div>
+                <h5 data-i18n="footer.col2.title">Unternehmen</h5>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav.home">Startseite</a></li>
+                    <li><a href="about.html" data-i18n="nav.about">Über uns</a></li>
+                    <li><a href="process.html" data-i18n="nav.process">Ablauf</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">Kontakt</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 data-i18n="footer.col3.title">Leistungen</h5>
+                <ul>
+                    <li><a href="services.html" data-i18n="services.1.title">Bluttransporte</a></li>
+                    <li><a href="services.html" data-i18n="services.2.title">Notfall-Transporte</a></li>
+                    <li><a href="services.html" data-i18n="services.3.title">Gewebeproben</a></li>
+                    <li><a href="services.html" data-i18n="services.6.title">Routenfahrten</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 data-i18n="footer.col4.title">Kontakt</h5>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    <span data-i18n="contact.info.phone.value">+49 (0) ___ _______</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                    <span data-i18n="contact.info.email.value">kontakt@____.de</span>
+                </div>
+                <div class="footer-contact-item">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    <span data-i18n="contact.info.hours.value">Mo–Fr: 07:00 – 19:00</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>© <span id="year"></span> LabLink. <span data-i18n="common.allRights">Alle Rechte vorbehalten.</span></div>
+            <div class="footer-legal">
+                <a href="#" data-i18n="footer.legal.imprint">Impressum</a>
+                <a href="#" data-i18n="footer.legal.privacy">Datenschutz</a>
+                <a href="#" data-i18n="footer.legal.terms">AGB</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
