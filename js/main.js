@@ -78,18 +78,23 @@ function initReveal() {
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 }
 
-// ---------- Contact Form (Formspree) ----------
+// ---------- Contact Form (Web3Forms) ----------
 function initForm() {
     const form = document.getElementById('contact-form');
     if (!form) return;
 
     const statusEl = form.querySelector('.form-status');
+    const submitBtn = form.querySelector('button[type="submit"]');
     const lang = () => document.documentElement.lang || 'de';
 
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         statusEl.className = 'form-status';
         statusEl.textContent = '';
+
+        const originalLabel = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.style.opacity = '0.7';
 
         const data = new FormData(form);
         try {
@@ -98,7 +103,8 @@ function initForm() {
                 body: data,
                 headers: { 'Accept': 'application/json' }
             });
-            if (res.ok) {
+            const json = await res.json().catch(() => ({}));
+            if (res.ok && json.success !== false) {
                 statusEl.className = 'form-status success';
                 statusEl.textContent = translations[lang()]['contact.form.success'];
                 form.reset();
@@ -108,6 +114,12 @@ function initForm() {
         } catch {
             statusEl.className = 'form-status error';
             statusEl.textContent = translations[lang()]['contact.form.error'];
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.style.opacity = '';
+            submitBtn.textContent = originalLabel;
+            // Scroll status into view
+            statusEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     });
 }

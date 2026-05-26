@@ -1,8 +1,20 @@
 # LabLink — Website
 
-Specialised medical sample transport for clinics and laboratories in Germany.
+Specialised medical sample, medical material and pharmaceutical transport for clinics, laboratories and pharmacies in the Koblenz region (100 km radius).
 
-Static, bilingual (German primary / English secondary) website. No backend, no framework — pure HTML/CSS/JS. Hosted on Vercel, contact form handled by Formspree.
+Static, bilingual (German primary / English secondary) website. No backend, no framework — pure HTML/CSS/JS. Hosted on Vercel, contact form handled by **Web3Forms**.
+
+---
+
+## Live contact details (already wired in)
+
+- **Address**: Von-Bodelschwingh Straße 10A, 56626 Andernach
+- **Phone**: +49 1522 4438655 (also 24/7 emergency hotline)
+- **Email**: contact@lablink-courier.de
+- **Domain**: lablink-courier.de
+- **Service area**: Koblenz region + 100 km radius
+
+All values are stored in `js/translations.js` under the `contact.info.*` keys (both `de` and `en` blocks).
 
 ---
 
@@ -12,9 +24,9 @@ Static, bilingual (German primary / English secondary) website. No backend, no f
 lablink/
 ├── index.html          # Home
 ├── about.html          # About us
-├── services.html       # Services
+├── services.html       # Services (7 services incl. medicine transport)
 ├── process.html        # How it works + FAQ
-├── contact.html        # Contact + form
+├── contact.html        # Contact + form (Web3Forms)
 ├── css/style.css       # Design system + all components
 ├── js/translations.js  # DE + EN translation strings
 ├── js/main.js          # Nav, mobile menu, FAQ, form, reveals
@@ -25,51 +37,23 @@ lablink/
 
 ---
 
-## Before going live — placeholders to fill in
+## Contact form (Web3Forms)
 
-The site contains placeholders that must be replaced with real client data. Search and replace **inside `js/translations.js`** (both `de` and `en` blocks):
+The form on `contact.html` posts to Web3Forms. **Already wired** with the access key `2b272f4e-ac36-4244-a09e-d291cdde2291`.
 
-### Contact details
-| Key | Placeholder | Replace with |
-|---|---|---|
-| `contact.info.address.value` | `___________________\n_____ ___________` | Street, postcode, city |
-| `contact.info.phone.value` | `+49 (0) ___ _______` | Main phone |
-| `contact.info.emergency.value` | `+49 (0) ___ _______` | 24/7 hotline |
-| `contact.info.email.value` | `kontakt@____.de` | Real email |
-| `home.cta.btn2` | `+49 (0) ___ _______` | CTA banner phone (same as main) |
+No further setup required — submissions will be delivered to the email registered with that access key on https://app.web3forms.com.
 
-### Team names (`about.html` section)
-| Key | Replace |
-|---|---|
-| `about.team.1.name` … `about.team.4.name` | Real names of MD, Ops Lead, QA Lead, Customer Service |
+Form fields submitted:
+- `name` — submitter's name
+- `organization` — clinic / pharmacy / facility
+- `email` — required
+- `phone` — optional
+- `subject` — one of: quote, routine, emergency, medicine, other
+- `message` — free text
+- `botcheck` — honeypot (Web3Forms standard)
+- `from_name` = `LabLink Website` (sender label in delivered email)
 
-### Footer phone/email
-Already pulls from the same keys above — no separate edit needed.
-
-### Legal pages
-`Impressum`, `Datenschutz`, `AGB` links in the footer currently point to `#`. Either build separate `imprint.html`, `privacy.html`, `terms.html` pages or update the `href` to wherever you host them.
-
----
-
-## Contact form (Formspree)
-
-The form on `contact.html` posts to Formspree.
-
-1. Create a free account at https://formspree.io
-2. Create a new form, choose the destination email
-3. Copy the form endpoint (looks like `https://formspree.io/f/xqkrabcd`)
-4. In `contact.html`, find this line:
-   ```html
-   <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-   ```
-   Replace `YOUR_FORM_ID` with the actual endpoint suffix.
-5. First submission triggers Formspree's email verification — confirm it.
-
-The form already includes:
-- Honeypot field (`_gotcha`) for basic spam protection
-- Client-side validation (required fields)
-- Bilingual success/error messages
-- Loading state handled in `js/main.js`
+To change the recipient or access key, edit the hidden inputs at the top of `<form id="contact-form">` in `contact.html`.
 
 ---
 
@@ -91,11 +75,25 @@ vercel --prod # deploy production
 5. Output directory: *(leave empty — uses repo root)*
 6. Deploy
 
-### Custom domain (Hostinger)
-1. In Vercel → Project → Settings → Domains → add `lablink.de` (and `www.lablink.de`)
-2. Vercel shows the required DNS records (A record `76.76.21.21` and/or CNAME `cname.vercel-dns.com`)
-3. In Hostinger → Domains → DNS → add the records exactly as Vercel specifies
-4. Wait for DNS propagation (5 min – 24 h). Vercel issues SSL automatically.
+### Custom domain — lablink-courier.de (Hostinger)
+1. In Vercel → Project → Settings → Domains → add `lablink-courier.de` AND `www.lablink-courier.de`
+2. Vercel will show the DNS records needed. Typically:
+   - Apex `lablink-courier.de` → A record `76.76.21.21`
+   - `www.lablink-courier.de` → CNAME `cname.vercel-dns.com`
+3. In Hostinger → Domains → DNS / Nameservers → add those records exactly as Vercel specifies (delete conflicting A/CNAME records)
+4. Wait 5 min – 24 h for propagation. Vercel issues SSL automatically.
+
+---
+
+## Services on this site
+
+1. **Bluttransporte** zwischen Klinik und Labor (blood samples)
+2. **Notfall- und STAT-Transporte** (emergency / STAT, 24/7, <60 min response)
+3. **Gewebeproben & Biopsien** (tissue, histology, cytology)
+4. **Mikrobiologische Proben** (cultures, swabs, urine)
+5. **Tiefkühltransporte** (-20 °C / -80 °C, dry ice)
+6. **Regelmäßige Routenfahrten** (fixed routes, fixed driver)
+7. **Medikamententransport für Apotheken (Subunternehmer)** — NEW. Transport of medicines to pharmacies in the Koblenz region as a subcontractor, GDP-compliant.
 
 ---
 
@@ -108,21 +106,23 @@ vercel --prod # deploy production
 
 ---
 
-## Compliance content notes
+## Compliance content
 
-The site emphasises three credibility pillars relevant to medical sample transport in Germany:
+The site emphasises three credibility pillars relevant to medical & pharmaceutical transport in Germany:
 
-- **GDP** — EU Good Distribution Practice guidelines (2013/C 343/01)
+- **GDP** — EU Good Distribution Practice guidelines (2013/C 343/01) — relevant for both diagnostic samples and pharmacy supply
 - **ADR Class 6.2** — Dangerous goods agreement for infectious substances (UN3373 for routine diagnostic specimens, UN2814 for Category A)
 - **ISO 9001** and **GDPR (DSGVO)** — quality and data protection
 
-These are mentioned multiple times across home, services, and process pages. If the client's actual certifications differ, edit the four `home.compliance.*` keys in `js/translations.js`.
+If the client's actual certifications differ, edit the four `home.compliance.*` keys in `js/translations.js`.
 
 ---
 
 ## Images
 
-All images are loaded from Unsplash CDN — no local image files in the repo. If the client supplies real photography (vehicles, team, facility), upload to a CDN or replace inline `<img src="...">` URLs.
+All images are loaded from Unsplash CDN — no local image files in the repo. If real photography becomes available (vehicles, team, the Andernach facility), upload to a CDN or replace inline `<img src="...">` URLs.
+
+The microbiology image (service #4) and route service image (service #6) were corrected in this revision to be topic-accurate.
 
 ---
 
@@ -141,12 +141,9 @@ Fully responsive. Tested breakpoints: 320, 375, 414, 768, 1024, 1280, 1440.
 
 ---
 
-## Performance
+## Optional legal pages
 
-- No frameworks, no bundlers — sub-100 KB transferred on first load (excluding images)
-- Fonts loaded via Google Fonts with `preconnect`
-- CSS and JS aggressively cached via `vercel.json` headers
-- All images use `loading="eager"` for hero, otherwise default lazy
+`Impressum`, `Datenschutz`, `AGB` links in the footer currently point to `#`. Either build separate `imprint.html`, `privacy.html`, `terms.html` pages or update the `href` to wherever they are hosted. German law (TMG §5) requires an Impressum for commercial sites.
 
 ---
 

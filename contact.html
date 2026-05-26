@@ -70,7 +70,7 @@
                         </div>
                         <div>
                             <div class="contact-info-text-label" data-i18n="contact.info.address.label">Adresse</div>
-                            <div class="contact-info-text-value" data-i18n="contact.info.address.value">___________________<br>_____ ___________<br>Deutschland</div>
+                            <div class="contact-info-text-value" data-i18n="contact.info.address.value">Von-Bodelschwingh Straße 10A<br>56626 Andernach<br>Deutschland</div>
                         </div>
                     </li>
                     <li>
@@ -79,7 +79,7 @@
                         </div>
                         <div>
                             <div class="contact-info-text-label" data-i18n="contact.info.phone.label">Telefon</div>
-                            <div class="contact-info-text-value" data-i18n="contact.info.phone.value">+49 (0) ___ _______</div>
+                            <div class="contact-info-text-value" data-i18n="contact.info.phone.value">+49 1522 4438655</div>
                         </div>
                     </li>
                     <li>
@@ -88,7 +88,7 @@
                         </div>
                         <div>
                             <div class="contact-info-text-label" data-i18n="contact.info.emergency.label">Notfall-Hotline (24/7)</div>
-                            <div class="contact-info-text-value" data-i18n="contact.info.emergency.value">+49 (0) ___ _______</div>
+                            <div class="contact-info-text-value" data-i18n="contact.info.emergency.value">+49 1522 4438655</div>
                         </div>
                     </li>
                     <li>
@@ -97,7 +97,7 @@
                         </div>
                         <div>
                             <div class="contact-info-text-label" data-i18n="contact.info.email.label">E-Mail</div>
-                            <div class="contact-info-text-value" data-i18n="contact.info.email.value">kontakt@____.de</div>
+                            <div class="contact-info-text-value" data-i18n="contact.info.email.value">contact@lablink-courier.de</div>
                         </div>
                     </li>
                     <li>
@@ -117,7 +117,10 @@
                 <h2 data-i18n="contact.form.title">Nachricht senden</h2>
                 <p style="margin-bottom: 1.5rem; color: var(--ink-soft);" data-i18n="contact.form.subtitle">Füllen Sie das Formular aus und wir melden uns zeitnah bei Ihnen.</p>
 
-                <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="2b272f4e-ac36-4244-a09e-d291cdde2291">
+                    <input type="hidden" name="from_name" value="LabLink Website">
+                    <input type="hidden" name="redirect" value="false">
                     <div class="form-status"></div>
 
                     <div class="form-row">
@@ -149,6 +152,7 @@
                             <option value="quote" data-i18n="contact.form.subject.quote">Angebot anfordern</option>
                             <option value="routine" data-i18n="contact.form.subject.routine">Regelmäßige Abholung</option>
                             <option value="emergency" data-i18n="contact.form.subject.emergency">Notfalltransport</option>
+                            <option value="medicine" data-i18n="contact.form.subject.medicine">Medikamententransport (Apotheke)</option>
                             <option value="other" data-i18n="contact.form.subject.other">Sonstiges</option>
                         </select>
                     </div>
@@ -158,8 +162,8 @@
                         <textarea id="message" name="message" required data-i18n-placeholder="contact.form.placeholder.message" placeholder="Beschreiben Sie kurz Ihre Anforderung — Routen, Zeitfenster, Probenart..."></textarea>
                     </div>
 
-                    <!-- Honeypot -->
-                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                    <!-- Honeypot (Web3Forms standard botcheck field) -->
+                    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1">
 
                     <button type="submit" class="btn btn-primary btn-lg" style="width:100%;" data-i18n="contact.form.submit">Nachricht senden</button>
                 </form>
@@ -182,7 +186,7 @@
                     </span>
                     <span>LabLink</span>
                 </a>
-                <p data-i18n="footer.tagline">Spezialisierter Transport von Blutproben und medizinischen Materialien — sicher, präzise und zertifiziert. Ihr Logistikpartner für die diagnostische Versorgungskette in Deutschland.</p>
+                <p data-i18n="footer.tagline">Spezialisierter Transport von Blutproben, medizinischen Materialien und Medikamenten — sicher, präzise und zertifiziert. Ihr Logistikpartner für die diagnostische Versorgungskette im Raum Koblenz.</p>
             </div>
             <div>
                 <h5 data-i18n="footer.col2.title">Unternehmen</h5>
@@ -206,11 +210,11 @@
                 <h5 data-i18n="footer.col4.title">Kontakt</h5>
                 <div class="footer-contact-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    <span data-i18n="contact.info.phone.value">+49 (0) ___ _______</span>
+                    <span data-i18n="contact.info.phone.value">+49 1522 4438655</span>
                 </div>
                 <div class="footer-contact-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                    <span data-i18n="contact.info.email.value">kontakt@____.de</span>
+                    <span data-i18n="contact.info.email.value">contact@lablink-courier.de</span>
                 </div>
                 <div class="footer-contact-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
