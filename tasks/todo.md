@@ -131,30 +131,34 @@
 
 > Stakeholder directive: "just make it like google stitch." Full translation of all Stitch HTML screens into Next.js TSX. See `plan.md` §12 for full spec. Source files in `stitch_medi_drive_dynamic_ui_refresh/`.
 
-### 10.1 globals.css — Stitch tokens + utility classes
-- [ ] Add all Velocity Precision color tokens to `@theme inline` block (`bg-secondary-container`, `bg-surface-container-low`, `bg-primary-container`, `text-on-surface-variant`, `text-secondary`, etc.)
-- [ ] Fix `--primary` to true Stitch primary `#001e40` (currently set to `#003366` which is `primary-container`)
-- [ ] Add `.velocity-gradient-bg` animated diagonal gradient class
-- [ ] Add `.velocity-gradient`, `.btn-glow`, `.magnetic-card`, `.pulse-icon` CSS classes
-- [ ] Add `.step-line::after` dotted cyan connector for how-it-works
-- [ ] Add `.hero-links-overlay` radial-gradient particle dot overlay
-- [ ] Add `.glass-card` glassmorphism class
-- [ ] Update `.reveal` to use JS-driven version (IntersectionObserver adds `.active`, CSS handles animation)
+### 10.1 globals.css — Stitch tokens + utility classes ✅ (commit `98246a4`)
+- [x] Add all Velocity Precision color tokens to `@theme inline` block (`bg-secondary-container`, `bg-surface-container-low`, `bg-primary-container`, `text-on-surface-variant`, `text-secondary`, etc.)
+- [x] `--primary` set to true Stitch primary `#001e40`
+- [x] `.velocity-gradient-bg` animated diagonal gradient (15s loop)
+- [x] `.velocity-gradient`, `.btn-glow`, `.magnetic-card`, `.pulse-icon` CSS classes
+- [x] `.hero-links-overlay` radial-gradient particle dot overlay
+- [x] `.glass-card` glassmorphism class
+- [x] `.reveal` JS-driven (IntersectionObserver adds `.active`)
+- [~] `.step-line::after` — replaced with inline absolute-positioned div in how-it-works (avoid pseudo-element responsive-prefix issue)
 
-### 10.2 layout.tsx — Material Symbols + JS scripts
-- [ ] Add Google Fonts `<link>` for Material Symbols Outlined
-- [ ] Add IntersectionObserver `<script>` for `.reveal`/`.active` pattern
-- [ ] Add scroll `<script>` for header height shrink (h-20 → h-16 on scroll)
-- [ ] Add magnetic card tilt `<script>` for 3D effect on `.magnetic-card` elements
+### 10.2 layout.tsx — Material Symbols + JS scripts ✅ (commit `98246a4`)
+- [x] Google Fonts `<link>` for Material Symbols Outlined (`<head>` with eslint-disable)
+- [x] IntersectionObserver `<script>` for `.reveal`/`.active` pattern
+- [x] Scroll `<script>` for header height shrink (h-20 → h-16 on scroll)
+- [ ] Magnetic card tilt `<script>` — CSS-only fallback used (no JS tilt); revisit if Stitch MCP design specifies 3D tilt
 
-### 10.3 Homepage section components → full Stitch translation
-- [ ] `components/sections/hero.tsx` — 2-col grid, `velocity-gradient-bg` animated bg, `hero-links-overlay` dots, floating "Pünktlich geliefert" badge, `btn-glow` CTAs
-- [ ] `components/sections/service-highlights.tsx` — Material Symbols icons (`science`, `package_2`, `schedule`), `magnetic-card` hover, cyan underline on group-hover, `pulse-icon`
-- [ ] `components/sections/trust-badges.tsx` — 4-col grid, white rounded-full icon containers, Material Symbols (`gpp_good`, `description`, `security`, `badge`), `bg-surface-container-low`
-- [ ] `components/sections/how-it-works.tsx` — 3-step grid, `bg-primary` step circles, `step-line` dotted connectors, step 3 in `bg-secondary-container text-primary`
-- [ ] `components/sections/cta.tsx` — full-width `velocity-gradient-bg` rounded-[2rem] card, texture overlay, `btn-glow` secondary-container CTA
+### 10.3 Homepage section components ✅ (commit `98246a4`)
+- [x] `components/sections/hero.tsx` — 2-col grid, `velocity-gradient-bg` animated bg, `hero-links-overlay` dots, floating "Pünktlich geliefert" badge, `btn-glow` CTAs
+- [x] `components/sections/service-highlights.tsx` — Material Symbols icons (`science`, `package_2`, `schedule`), `magnetic-card`, cyan underline on group-hover, `pulse-icon`
+- [x] `components/sections/trust-badges.tsx` — 4-col grid, white rounded-full icon containers, Material Symbols (`gpp_good`, `description`, `security`, `badge`)
+- [x] `components/sections/how-it-works.tsx` — 3-step grid, `bg-primary` step circles, dotted connectors, step 3 in `bg-secondary-container text-primary`
+- [x] `components/sections/cta.tsx` — `velocity-gradient-bg` rounded-[2rem] card with texture overlay, `btn-glow` secondary-container CTA
 
-### 10.4 Contact page — Stitch visual applied to existing functional form
+### 10.7 Header + Footer — Stitch design ✅ (commit `98246a4`)
+- [x] `header.tsx`: `fixed`, h-20 → h-16 on scroll, `bg-surface/80 backdrop-blur-lg`, `bg-secondary-container text-primary btn-glow` CTA pill
+- [x] `footer.tsx`: 2-column Stitch layout (logo + tagline left, nav grid right)
+
+### 10.4 Contact page — Stitch visual applied to existing functional form ⏳ NOT DONE
 - [ ] Hero section with "KONTAKT" badge chip + display headline
 - [ ] `<ContactForm />` wrapped in Stitch glassmorphism white card
 - [ ] Apply Stitch input styling to existing inputs (preserve Zod/react-hook-form validation)
@@ -162,27 +166,31 @@
 - [ ] Support-Zentrum section (`bg-primary-container` navy bg, 3 glassmorphism dept cards)
 - [ ] FAQ `<details>/<summary>` accordion section
 
-### 10.5 About page — reconstruct from Stitch screenshot
+### 10.5 About page — reconstruct from Stitch screenshot ⏳ NOT DONE
 - [ ] 2-col hero: text left + image right, "ÜBER UNS" badge chip, "Logistik, die Leben rettet" headline
 - [ ] "Exzellenz durch Expertise" section: heading + cyan underline, 3 feature cards
 - [ ] Dark full-width feature section (navy bg, "Technologie-getriebene Sicherheit")
 - [ ] ISO-Zertifiziert + Kühlketten-Garantie + Datenschutz badge cards
 - [ ] Navy CTA section
 
-### 10.6 Services page — reconstruct from Stitch screenshot
+### 10.6 Services page — reconstruct from Stitch screenshot ⏳ NOT DONE
 - [ ] Hero: "Präzision in jeder Sekunde" headline, velocity-gradient CTA button
 - [ ] "Unsere Kernleistungen" section: 3 main service `magnetic-card` cards
 - [ ] Full-width dark section: "Temperatursicherheit ohne Kompromisse"
 
-### 10.7 Header + Footer — Stitch design
-- [ ] `header.tsx`: `fixed` positioning, h-20 → h-16 on scroll, `bg-surface/80 backdrop-blur-lg`, `bg-secondary-container text-primary btn-glow` CTA pill
-- [ ] `footer.tsx`: 2-column Stitch layout (logo + tagline left, nav links right)
-
 ### 10.8 Verification
-- [ ] `pnpm build` zero warnings
-- [ ] `pnpm lint` + `pnpm tsc --noEmit` clean
-- [ ] `pnpm check-i18n` passes (Phase 10 adds no new i18n keys)
-- [ ] Commit: `feat: Velocity Precision Stitch implementation — full redesign`
+- [x] `pnpm build` zero warnings (for homepage scope)
+- [x] `pnpm lint` + `pnpm tsc --noEmit` clean
+- [x] `pnpm check-i18n` passes — 146 keys per locale (10 new keys added)
+- [x] Commit `98246a4`: `feat: Velocity Precision Stitch implementation — full redesign`
+- [ ] Re-verify after About/Services/Contact updates land
+
+### 10.9 Stitch MCP integration (added 2026-05-26)
+Stakeholder added Google Stitch MCP server (`https://stitch.googleapis.com/mcp`) to `~/.claude.json` for project `e:\medi-drive`. Header: `X-Goog-Api-Key`. Tools become callable as `mcp__stitch__*` after Claude Code restart.
+
+- [ ] Restart Claude Code to load Stitch MCP tools
+- [ ] Use Stitch MCP to fetch authoritative design data for About / Services / Contact pages
+- [ ] Replace homepage hero placeholder gradient with real Stitch hero asset (if MCP exposes it)
 
 ## Phase 7 — Deploy to Vercel
 
