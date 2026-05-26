@@ -158,38 +158,38 @@
 - [x] `header.tsx`: `fixed`, h-20 → h-16 on scroll, `bg-surface/80 backdrop-blur-lg`, `bg-secondary-container text-primary btn-glow` CTA pill
 - [x] `footer.tsx`: 2-column Stitch layout (logo + tagline left, nav grid right)
 
-### 10.4 Contact page — Stitch visual applied to existing functional form ⏳ NOT DONE
-- [ ] Hero section with "KONTAKT" badge chip + display headline
-- [ ] `<ContactForm />` wrapped in Stitch glassmorphism white card
-- [ ] Apply Stitch input styling to existing inputs (preserve Zod/react-hook-form validation)
-- [ ] Contact info column (address, phone, email + Material Symbols icons)
-- [ ] Support-Zentrum section (`bg-primary-container` navy bg, 3 glassmorphism dept cards)
-- [ ] FAQ `<details>/<summary>` accordion section
+### 10.4 Contact page — Stitch visual applied to existing functional form ✅ DONE
+- [x] Hero section with "KONTAKT" badge chip + display headline ("Wir bringen Präzision in Bewegung." / "We put precision in motion.")
+- [x] `<ContactForm />` wrapped in Stitch glassmorphism white card (`.glass-card`)
+- [x] Apply Stitch input styling to existing inputs (preserve Zod/react-hook-form validation) — `variant="stitch"` prop adds bottom-only-border `bg-surface-container-low` inputs + uppercase labels; honeypot, schema, API route untouched
+- [x] Contact info column (address, phone, email + Material Symbols icons in `bg-secondary-container/20` icon wrappers)
+- [x] Support-Zentrum section (`bg-primary-container` navy bg, 3 glassmorphism dept cards: Vertrieb / Technischer Support / Presse & Media)
+- [x] FAQ `<details>/<summary>` accordion section with rotating chevron + live-status card
 
-### 10.5 About page — reconstruct from Stitch screenshot ⏳ NOT DONE
-- [ ] 2-col hero: text left + image right, "ÜBER UNS" badge chip, "Logistik, die Leben rettet" headline
-- [ ] "Exzellenz durch Expertise" section: heading + cyan underline, 3 feature cards
-- [ ] Dark full-width feature section (navy bg, "Technologie-getriebene Sicherheit")
-- [ ] ISO-Zertifiziert + Kühlketten-Garantie + Datenschutz badge cards
-- [ ] Navy CTA section
+### 10.5 About page — reconstruct from Stitch screenshot ✅ DONE
+- [x] 2-col hero: text left + image right, "ÜBER UNS" badge chip, "Logistik, die Leben rettet." headline with cyan accent on "rettet."
+- [x] "Exzellenz durch Expertise" section: heading + cyan underline, 3 feature `magnetic-card` cards (Medizinische Fachkenntnis, Vernetzte Plattform, Qualitätssicherung)
+- [x] Dark full-width feature section (`bg-primary`, "Technologie-getriebene Sicherheit") with 3 stat chips
+- [x] ISO-Zertifiziert + Kühlketten-Garantie + Datenschutz & Diskretion badge cards (3-col strip)
+- [x] Navy CTA section (`velocity-gradient-bg rounded-[2rem]`) with primary + secondary CTAs
 
-### 10.6 Services page — reconstruct from Stitch screenshot ⏳ NOT DONE
-- [ ] Hero: "Präzision in jeder Sekunde" headline, velocity-gradient CTA button
-- [ ] "Unsere Kernleistungen" section: 3 main service `magnetic-card` cards
-- [ ] Full-width dark section: "Temperatursicherheit ohne Kompromisse"
+### 10.6 Services page — reconstruct from Stitch screenshot ✅ DONE
+- [x] Hero: "Präzision in jeder Sekunde." headline, velocity-gradient CTA button, floating 24/7 service badge
+- [x] "Unsere Kernleistungen" section: 3 main service `magnetic-card` cards (Probenlogistik, Verbrauchsmaterial & Medizintechnik, Planmäßige & On-Demand-Routen) with feature bullet lists + tertiary "Discover" link
+- [x] Full-width dark section: "Temperatursicherheit ohne Kompromisse" with 3 cool-chain stat chips + CTA
 
 ### 10.8 Verification
 - [x] `pnpm build` zero warnings (for homepage scope)
 - [x] `pnpm lint` + `pnpm tsc --noEmit` clean
 - [x] `pnpm check-i18n` passes — 146 keys per locale (10 new keys added)
 - [x] Commit `98246a4`: `feat: Velocity Precision Stitch implementation — full redesign`
-- [ ] Re-verify after About/Services/Contact updates land
+- [x] Re-verify after About/Services/Contact updates land — `pnpm build`, `pnpm lint`, `pnpm tsc --noEmit`, `pnpm check-i18n` (211 keys/locale) all clean post-§10.4/5/6
 
 ### 10.9 Stitch MCP integration (added 2026-05-26)
 Stakeholder added Google Stitch MCP server (`https://stitch.googleapis.com/mcp`) to `~/.claude.json` for project `e:\medi-drive`. Header: `X-Goog-Api-Key`. Tools become callable as `mcp__stitch__*` after Claude Code restart.
 
-- [ ] Restart Claude Code to load Stitch MCP tools
-- [ ] Use Stitch MCP to fetch authoritative design data for About / Services / Contact pages
+- [ ] Restart Claude Code to load Stitch MCP tools — still pending; About/Services/Contact §10.4–10.6 were built from the existing static HTML/screenshots in `stitch_medi_drive_dynamic_ui_refresh/` because `mcp__stitch__*` tools did not surface in ToolSearch during this session
+- [ ] Use Stitch MCP to fetch authoritative design data for About / Services / Contact pages (refinement pass once MCP is loaded)
 - [ ] Replace homepage hero placeholder gradient with real Stitch hero asset (if MCP exposes it)
 
 ## Phase 7 — Deploy to Vercel

@@ -22,9 +22,24 @@ const resolver: Resolver<ContactFormData> = async (values) => {
   return { values: {}, errors };
 };
 
-export function ContactForm() {
+type Variant = 'default' | 'stitch';
+
+const stitchInput =
+  'h-12 rounded-b-none rounded-t-lg border-x-0 border-t-0 border-b-2 border-input bg-surface-container-low px-4 py-3 text-base focus-visible:border-secondary-container focus-visible:ring-0';
+
+const stitchLabel = 'block mb-2 text-xs font-bold uppercase tracking-widest text-primary';
+const defaultLabel = 'block text-sm font-medium text-foreground mb-1';
+
+export function ContactForm({ variant = 'default' }: { variant?: Variant } = {}) {
   const t = useTranslations('contact.form');
   const tFooter = useTranslations('footer');
+  const isStitch = variant === 'stitch';
+
+  const labelClass = isStitch ? stitchLabel : defaultLabel;
+  const inputClass = isStitch ? stitchInput : undefined;
+  const selectClass = isStitch
+    ? 'w-full h-12 rounded-t-lg rounded-b-none border-x-0 border-t-0 border-b-2 border-input bg-surface-container-low px-4 py-3 text-base text-on-surface focus:outline-none focus:border-secondary-container'
+    : 'w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring';
 
   const {
     register,
@@ -61,33 +76,57 @@ export function ContactForm() {
       />
 
       <div className="space-y-5">
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-foreground mb-1">
-            {t('name')} <span aria-hidden="true">*</span>
-          </label>
-          <Input
-            id="name"
-            type="text"
-            autoComplete="name"
-            aria-describedby={errors.name ? 'name-error' : undefined}
-            aria-invalid={!!errors.name}
-            {...register('name')}
-          />
-          {errors.name && (
-            <p id="name-error" role="alert" className="mt-1 text-xs text-destructive">
-              {t('nameRequired')}
-            </p>
-          )}
+        <div className={isStitch ? 'grid gap-5 sm:grid-cols-2' : 'space-y-5'}>
+          <div>
+            <label htmlFor="name" className={labelClass}>
+              {t('name')} <span aria-hidden="true">*</span>
+            </label>
+            <Input
+              id="name"
+              type="text"
+              autoComplete="name"
+              className={inputClass}
+              aria-describedby={errors.name ? 'name-error' : undefined}
+              aria-invalid={!!errors.name}
+              {...register('name')}
+            />
+            {errors.name && (
+              <p id="name-error" role="alert" className="mt-1 text-xs text-destructive">
+                {t('nameRequired')}
+              </p>
+            )}
+          </div>
+
+          <div>
+            <label htmlFor="email" className={labelClass}>
+              {t('email')} <span aria-hidden="true">*</span>
+            </label>
+            <Input
+              id="email"
+              type="email"
+              autoComplete="email"
+              className={inputClass}
+              aria-describedby={errors.email ? 'email-error' : undefined}
+              aria-invalid={!!errors.email}
+              {...register('email')}
+            />
+            {errors.email && (
+              <p id="email-error" role="alert" className="mt-1 text-xs text-destructive">
+                {errors.email.type === 'invalid_string' ? t('emailInvalid') : t('emailRequired')}
+              </p>
+            )}
+          </div>
         </div>
 
         <div>
-          <label htmlFor="org" className="block text-sm font-medium text-foreground mb-1">
+          <label htmlFor="org" className={labelClass}>
             {t('org')} <span aria-hidden="true">*</span>
           </label>
           <Input
             id="org"
             type="text"
             autoComplete="organization"
+            className={inputClass}
             aria-describedby={errors.org ? 'org-error' : undefined}
             aria-invalid={!!errors.org}
             {...register('org')}
@@ -100,44 +139,26 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-foreground mb-1">
-            {t('email')} <span aria-hidden="true">*</span>
-          </label>
-          <Input
-            id="email"
-            type="email"
-            autoComplete="email"
-            aria-describedby={errors.email ? 'email-error' : undefined}
-            aria-invalid={!!errors.email}
-            {...register('email')}
-          />
-          {errors.email && (
-            <p id="email-error" role="alert" className="mt-1 text-xs text-destructive">
-              {errors.email.type === 'invalid_string' ? t('emailInvalid') : t('emailRequired')}
-            </p>
-          )}
-        </div>
-
-        <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-1">
+          <label htmlFor="phone" className={labelClass}>
             {t('phone')}
           </label>
           <Input
             id="phone"
             type="tel"
             autoComplete="tel"
+            className={inputClass}
             {...register('phone')}
           />
         </div>
 
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-1">
+          <label htmlFor="subject" className={labelClass}>
             {t('subject')} <span aria-hidden="true">*</span>
           </label>
           <select
             id="subject"
             {...register('subject')}
-            className="w-full rounded-lg border border-input bg-background px-3 py-2 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+            className={selectClass}
           >
             {SUBJECT_VALUES.map((val) => (
               <option key={val} value={val}>
@@ -148,7 +169,7 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">
+          <label htmlFor="message" className={labelClass}>
             {t('message')} <span aria-hidden="true">*</span>
           </label>
           <Textarea
@@ -157,7 +178,11 @@ export function ContactForm() {
             placeholder={t('messagePlaceholder')}
             aria-describedby={errors.message ? 'message-error' : undefined}
             aria-invalid={!!errors.message}
-            className="resize-y"
+            className={
+              isStitch
+                ? 'min-h-32 resize-y rounded-t-lg rounded-b-none border-x-0 border-t-0 border-b-2 border-input bg-surface-container-low px-4 py-3 text-base focus-visible:border-secondary-container focus-visible:ring-0'
+                : 'resize-y'
+            }
             {...register('message')}
           />
           {errors.message && (
@@ -191,10 +216,29 @@ export function ContactForm() {
           </div>
         </div>
 
-        <Button type="submit" className="w-full" disabled={isSubmitting}>
-          {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" aria-hidden="true" />}
-          {t('submit')}
-        </Button>
+        {isStitch ? (
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="btn-glow group flex w-full items-center justify-center gap-2 rounded-lg bg-primary py-4 text-sm font-bold uppercase tracking-widest text-white shadow-lg transition-all disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            {isSubmitting && <Loader2 className="size-4 animate-spin" aria-hidden="true" />}
+            <span>{t('submit')}</span>
+            {!isSubmitting && (
+              <span
+                className="material-symbols-outlined text-base transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              >
+                send
+              </span>
+            )}
+          </button>
+        ) : (
+          <Button type="submit" className="w-full" disabled={isSubmitting}>
+            {isSubmitting && <Loader2 className="mr-2 size-4 animate-spin" aria-hidden="true" />}
+            {t('submit')}
+          </Button>
+        )}
       </div>
     </form>
   );
